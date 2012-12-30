@@ -1,3 +1,12 @@
+Overview
+--------
+
+Online Frontlines is a turn based strategy game that you can play in your browser. The biggest difference with other strategy games is that you can see the entire map on one screen and you cannot create new units. You play the game online versus someone else. You can either play through mail or you can play live.
+
+Screenshots can be found here: [screen shots](https://github.com/jrouwe/OnlineFrontlines/wiki/Screen-shots)
+
+Try out playing the game against yourself here: [play game](http://jrouwe.nl/ofl/game.html)
+
 Installation instructions
 -------------------------
 
