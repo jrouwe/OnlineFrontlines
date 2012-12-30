@@ -1,0 +1,118 @@
+<ehcache xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="ehcache.xsd">
+
+    <defaultCache
+            maxElementsInMemory="1000"
+            eternal="false"
+            timeToLiveSeconds="120"
+            overflowToDisk="false"
+            memoryStoreEvictionPolicy="LRU"
+            />
+
+    <cache name="ResourceBalancerCache"
+           maxElementsInMemory="1000"
+           eternal="false"
+           timeToLiveSeconds="10"
+           overflowToDisk="false"
+           memoryStoreEvictionPolicy="LRU"
+         	/>
+
+    <cache name="UserCache"
+           maxElementsInMemory="1000"
+           eternal="true"
+           overflowToDisk="false"
+         	/>
+
+    <cache name="UserIdCache"
+           maxElementsInMemory="1000"
+           eternal="true"
+           overflowToDisk="false"
+         	/>
+
+    <cache name="UserFbIdCache"
+           maxElementsInMemory="1000"
+           eternal="true"
+           overflowToDisk="false"
+         	/>
+
+    <cache name="CountryConfigCache"
+           maxElementsInMemory="1000"
+           eternal="true"
+           overflowToDisk="false"
+         	/>
+
+    <cache name="DeploymentConfigCache"
+           maxElementsInMemory="1000"
+           eternal="true"
+           overflowToDisk="false"
+         	/>
+
+    <cache name="GameStateCache"
+           maxElementsInMemory="1000"
+           eternal="false"
+           timeToLiveSeconds="600"
+           overflowToDisk="false"
+           memoryStoreEvictionPolicy="LRU"
+         	/>
+
+    <cache name="LobbyStateCache"
+           maxElementsInMemory="100"
+           eternal="false"
+           timeToLiveSeconds="600"
+           overflowToDisk="false"
+           memoryStoreEvictionPolicy="LRU"
+         	/>
+
+    <cache name="LobbyUserCountCache"
+           maxElementsInMemory="100"
+           eternal="true"
+           overflowToDisk="false"
+         	/>
+
+    <cache name="MapConfigCache"
+           maxElementsInMemory="1000"
+           eternal="true"
+           overflowToDisk="false"
+         	/>
+
+    <cache name="UserLeaderboardCache"
+           maxElementsInMemory="1"
+           eternal="false"
+           timeToLiveSeconds="600"
+           overflowToDisk="false"
+           memoryStoreEvictionPolicy="LRU"
+         	/>
+
+    <cache name="UserStatsCache"
+           maxElementsInMemory="1000"
+           eternal="false"
+           timeToLiveSeconds="600"
+           overflowToDisk="false"
+           memoryStoreEvictionPolicy="LRU"
+         	/>
+
+    <cache name="CacheTag"
+           maxElementsInMemory="1000"
+           eternal="false"
+           timeToLiveSeconds="3600"
+           overflowToDisk="false"
+           memoryStoreEvictionPolicy="LRU"
+         	/>
+
+    <cache name="FBAccessTokenCache"
+           maxElementsInMemory="1000"
+           eternal="false"
+           timeToLiveSeconds="60"
+           overflowToDisk="false"
+           memoryStoreEvictionPolicy="LRU"
+         	/>
+
+    <cache name="FBAuthenticationCookieCache"
+           maxElementsInMemory="1000"
+           eternal="false"
+           timeToLiveSeconds="60"
+           overflowToDisk="false"
+           memoryStoreEvictionPolicy="LRU"
+         	/>
+
+</ehcache>

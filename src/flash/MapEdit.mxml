@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<mx:Application 
+	xmlns:mx="http://www.adobe.com/2006/mxml"
+	xmlns:utils="onlinefrontlines.utils.*"
+	xmlns:game="onlinefrontlines.game.*"
+	xmlns:mapedit="onlinefrontlines.mapedit.*"
+	styleName="plain"
+	horizontalScrollPolicy="off"
+	verticalScrollPolicy="off"
+	width="990"
+	height="595"
+	backgroundColor="#00000000"
+	preloader="GeneralPreloader"
+	creationComplete="initApp()">
+	
+	<mx:Script>
+		<![CDATA[
+	        import onlinefrontlines.mapedit.Main;
+			
+			public function initApp() : void 			
+			{
+	            Main.run();
+			}
+		]]>
+	</mx:Script>
+
+	<mx:Style source="Styles.css"/>
+
+	<mx:Canvas id="canvas">
+	
+		<game:MapConfig id="mapConfig"/>
+		
+		<mx:Image x="870" y="0" id="infoPanel" source="@Embed(source='assets/map_edit/info_panel.png')"/>
+
+		<mapedit:TileSelectionTool id="tileSelectionTool" x="885" y="13" width="93" height="360" verticalScrollPolicy="on"/>
+		<mapedit:OwnerSelectionTool id="ownerSelectionTool" x="885" y="13" width="93" height="360"/>
+		
+		<mx:Label x="890" y="400" styleName="mediumFont" color="#ffffff" selectable="false" text="Edit Mode"/>
+		<mx:RadioButton x="890" y="422" color="#ffffff" groupName="editMode" id="modeTiles" label="Tiles"/>
+		<mx:RadioButton x="890" y="444" color="#ffffff" groupName="editMode" id="modeOwner" label="Owner"/>
+
+		<mx:Label x="890" y="471" styleName="mediumFont" color="#ffffff"  selectable="false" text="Brush Mode"/>
+		<mx:RadioButton x="890" y="493" color="#ffffff" groupName="brushMode" id="brush1" label="1 Tile"/>
+		<mx:RadioButton x="890" y="515" color="#ffffff" groupName="brushMode" id="brush7" label="7 Tiles"/>
+		<mx:RadioButton x="890" y="538" color="#ffffff" groupName="brushMode" id="brushFill" label="Fill"/>
+
+		<mx:Button x="875" y="576" height="17" id="saveButton" styleName="messageBoxButton" label="Save"/>
+		
+		<mx:Canvas id="balloons"/>
+
+		<utils:Greyout id="greyOut"/>
+		
+		<utils:MsgBox id="msgBox" x="314" y="230" width="280" height="139"/>
+
+	</mx:Canvas>
+	
+</mx:Application>

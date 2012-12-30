@@ -1,0 +1,518 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<actions>
+	<!-- Default -->
+	
+	<default-action class="onlinefrontlines.web.WebAction">
+		<interceptor>onlinefrontlines.auth.web.UserAuthenticationInterceptor</interceptor>	
+		<result name="error">/WEB-INF/jsp/Error.jsp</result>
+	</default-action>
+
+	<!-- Main -->
+	
+	<action name="Home" class="onlinefrontlines.home.web.HomeAction">
+		<interceptor>onlinefrontlines.web.WebInterceptor</interceptor>
+		<result>/WEB-INF/jsp/home/Home.jsp</result>
+	</action>
+
+	<action name="FacebookCanvas" class="onlinefrontlines.facebook.web.FacebookCanvas">
+		<interceptor>onlinefrontlines.web.WebInterceptor</interceptor>
+		<result>/WEB-INF/jsp/facebook/FacebookCanvas.jsp</result>
+	</action>
+
+	<action name="PlayNow" class="onlinefrontlines.home.web.PlayNowAction">
+		<interceptor>onlinefrontlines.web.WebInterceptor</interceptor>
+		<result>/WEB-INF/jsp/home/PlayNow.jsp</result>
+	</action>
+	
+	<!-- Authentication pages -->
+	
+	<action name="Login" class="onlinefrontlines.auth.web.LoginAction">
+		<interceptor>onlinefrontlines.web.WebInterceptor</interceptor>
+		<result name="input">/WEB-INF/jsp/auth/Login.jsp</result>
+		<result type="redirect">Home.do</result>
+	</action>
+
+	<action name="LoginAs" method="input" class="onlinefrontlines.auth.web.LoginAsAction">
+		<interceptor>onlinefrontlines.auth.web.AdminAuthenticationInterceptor</interceptor>
+		<result name="input">/WEB-INF/jsp/auth/LoginAs.jsp</result>
+		<result type="redirect">Home.do</result>
+	</action>
+
+	<action name="DoLoginAs" class="onlinefrontlines.auth.web.LoginAsAction">
+		<interceptor>onlinefrontlines.auth.web.AdminAuthenticationInterceptor</interceptor>
+		<result name="input">/WEB-INF/jsp/auth/LoginAs.jsp</result>
+		<result type="redirect">Home.do</result>
+	</action>
+		
+	<action name="EditProfile" method="input" class="onlinefrontlines.auth.web.EditProfileAction">
+		<result name="input">/WEB-INF/jsp/auth/EditProfile.jsp</result>
+	</action>
+
+	<action name="DoEditProfile" class="onlinefrontlines.auth.web.EditProfileAction">
+		<result name="input">/WEB-INF/jsp/auth/EditProfile.jsp</result>
+		<result type="redirect">MyStats.do</result>
+	</action>
+	
+	<action name="EditArmy" method="input" class="onlinefrontlines.auth.web.EditArmyAction">
+		<interceptor>onlinefrontlines.auth.web.UserAuthenticationInterceptor</interceptor>
+		<result name="input">/WEB-INF/jsp/auth/EditArmy.jsp</result>
+	</action>
+
+	<action name="DoEditArmy" class="onlinefrontlines.auth.web.EditArmyAction">
+		<interceptor>onlinefrontlines.auth.web.UserAuthenticationInterceptor</interceptor>
+		<result name="input">/WEB-INF/jsp/auth/EditArmy.jsp</result>
+		<result type="redirect">Home.do</result>
+	</action>
+	
+	<action name="Logout" class="onlinefrontlines.auth.web.LogoutAction">
+		<interceptor>onlinefrontlines.web.WebInterceptor</interceptor>
+		<result type="redirect">Home.do</result>
+	</action>
+
+	<!-- Map Edit -->	 
+	   
+	<action name="MapList" class="onlinefrontlines.mapedit.web.MapListAction">
+		<interceptor>onlinefrontlines.auth.web.UserAuthenticationInterceptor</interceptor>
+		 <result name="success">/WEB-INF/jsp/mapedit/MapList.jsp</result>
+	</action>
+
+	<action name="MapCreate" method="input" class="onlinefrontlines.mapedit.web.MapCreateAction">
+		<interceptor>onlinefrontlines.auth.web.UserAuthenticationInterceptor</interceptor>
+		<result name="input">/WEB-INF/jsp/mapedit/MapCreate.jsp</result>
+	</action>
+
+	<action name="DoMapCreate" class="onlinefrontlines.mapedit.web.MapCreateAction">
+		<interceptor>onlinefrontlines.auth.web.UserAuthenticationInterceptor</interceptor>
+		<result name="input">/WEB-INF/jsp/mapedit/MapCreate.jsp</result>
+		<result type="redirect">MapList.do</result>
+	</action>
+
+	<action name="MapDelete" class="onlinefrontlines.mapedit.web.MapDeleteAction">
+		<interceptor>onlinefrontlines.auth.web.UserAuthenticationInterceptor</interceptor>
+		<result type="redirect">MapList.do</result>
+	</action>
+
+	 <action name="MapProperties" method="input" class="onlinefrontlines.mapedit.web.MapPropertiesAction">
+		<interceptor>onlinefrontlines.auth.web.UserAuthenticationInterceptor</interceptor>
+		<result name="input">/WEB-INF/jsp/mapedit/MapProperties.jsp</result>
+	</action>
+
+	<action name="DoMapProperties" class="onlinefrontlines.mapedit.web.MapPropertiesAction">
+		<interceptor>onlinefrontlines.auth.web.UserAuthenticationInterceptor</interceptor>
+		<result name="input">/WEB-INF/jsp/mapedit/MapProperties.jsp</result>
+		<result type="redirect">MapList.do</result>
+	</action>
+
+	<action name="MapEdit" class="onlinefrontlines.mapedit.web.MapEditAction">
+		<interceptor>onlinefrontlines.auth.web.UserAuthenticationInterceptor</interceptor>
+		<result>/WEB-INF/jsp/mapedit/MapEdit.jsp</result>
+	</action>
+
+	<action name="MapLoad" class="onlinefrontlines.mapedit.web.MapLoadAction">
+		<interceptor>onlinefrontlines.auth.web.UserAuthenticationInterceptor</interceptor>
+		<result name="success">/WEB-INF/jsp/mapedit/MapLoad.jsp</result>
+		<result name="error">/WEB-INF/jsp/ErrorXML.jsp</result>
+		<result name="redirect">/WEB-INF/jsp/ErrorXML.jsp</result>
+	</action>
+
+	<action name="MapSave" class="onlinefrontlines.mapedit.web.MapSaveAction">
+		<interceptor>onlinefrontlines.auth.web.UserAuthenticationInterceptor</interceptor>
+		<result name="success">/WEB-INF/jsp/mapedit/MapSave.jsp</result>
+		<result name="error">/WEB-INF/jsp/ErrorXML.jsp</result>
+		<result name="redirect">/WEB-INF/jsp/ErrorXML.jsp</result>
+	</action>
+	
+	<!-- Deployment Edit -->
+
+	 <action name="DeploymentList" class="onlinefrontlines.deploymentedit.web.DeploymentListAction">
+		<interceptor>onlinefrontlines.auth.web.UserAuthenticationInterceptor</interceptor>
+		<result name="success">/WEB-INF/jsp/deploymentedit/DeploymentList.jsp</result>
+	</action>	  
+
+	 <action name="DeploymentCreate" method="input" class="onlinefrontlines.deploymentedit.web.DeploymentCreateAction">
+		<interceptor>onlinefrontlines.auth.web.UserAuthenticationInterceptor</interceptor>
+		<result name="input">/WEB-INF/jsp/deploymentedit/DeploymentCreate.jsp</result>
+	</action>
+
+	<action name="DoDeploymentCreate" class="onlinefrontlines.deploymentedit.web.DeploymentCreateAction">
+		<interceptor>onlinefrontlines.auth.web.UserAuthenticationInterceptor</interceptor>
+		<result name="input">/WEB-INF/jsp/deploymentedit/DeploymentCreate.jsp</result>
+		<result type="redirect">DeploymentList.do</result>
+	</action>
+
+	<action name="DeploymentDelete" class="onlinefrontlines.deploymentedit.web.DeploymentDeleteAction">
+		<interceptor>onlinefrontlines.auth.web.UserAuthenticationInterceptor</interceptor>
+		<result type="redirect">DeploymentList.do</result>
+	</action>
+
+	<action name="DeploymentEdit" method="input" class="onlinefrontlines.deploymentedit.web.DeploymentEditAction">
+		<interceptor>onlinefrontlines.auth.web.UserAuthenticationInterceptor</interceptor>
+		<result name="input">/WEB-INF/jsp/deploymentedit/DeploymentEdit.jsp</result>
+	</action>
+
+	<action name="DoDeploymentEdit" class="onlinefrontlines.deploymentedit.web.DeploymentEditAction">
+		<interceptor>onlinefrontlines.auth.web.UserAuthenticationInterceptor</interceptor>
+		<result name="input">/WEB-INF/jsp/deploymentedit/DeploymentEdit.jsp</result>
+		<result name="success">/WEB-INF/jsp/deploymentedit/DeploymentEdit.jsp</result>
+	</action>
+
+	<!-- Country Config Edit -->
+
+	<action name="CountryCreateHome">
+		<interceptor>onlinefrontlines.auth.web.UserAuthenticationInterceptor</interceptor>
+		<result name="success">/WEB-INF/jsp/countryedit/CountryCreateHome.jsp</result>
+	</action>	  
+
+	<action name="CountryList" class="onlinefrontlines.countryedit.web.CountryListAction">
+		<interceptor>onlinefrontlines.auth.web.UserAuthenticationInterceptor</interceptor>
+		<result name="success">/WEB-INF/jsp/countryedit/CountryList.jsp</result>
+	</action>	  
+
+	<action name="CountryListToBePublished" class="onlinefrontlines.countryedit.web.CountryListToBePublishedAction">
+		<interceptor>onlinefrontlines.auth.web.AdminAuthenticationInterceptor</interceptor>
+		<result name="success">/WEB-INF/jsp/countryedit/CountryListToBePublished.jsp</result>
+	</action>	  
+
+	<action name="CountryListInvalid" class="onlinefrontlines.countryedit.web.CountryListInvalidAction">
+		<interceptor>onlinefrontlines.auth.web.UserAuthenticationInterceptor</interceptor>
+		<result name="success">/WEB-INF/jsp/countryedit/CountryListInvalid.jsp</result>
+	</action>	  
+
+	<action name="CountryCreate" method="input" class="onlinefrontlines.countryedit.web.CountryCreateAction">
+		<interceptor>onlinefrontlines.auth.web.UserAuthenticationInterceptor</interceptor>
+		<result name="input">/WEB-INF/jsp/countryedit/CountryCreate.jsp</result>
+	</action>
+
+	<action name="DoCountryCreate" class="onlinefrontlines.countryedit.web.CountryCreateAction">
+		<interceptor>onlinefrontlines.auth.web.UserAuthenticationInterceptor</interceptor>
+		<result name="input">/WEB-INF/jsp/countryedit/CountryCreate.jsp</result>
+		<result type="redirect">CountryList.do</result>
+	</action>
+
+	<action name="CountryDelete" class="onlinefrontlines.countryedit.web.CountryDeleteAction">
+		<interceptor>onlinefrontlines.auth.web.UserAuthenticationInterceptor</interceptor>
+		<result type="redirect">CountryList.do</result>
+	</action>
+
+	<action name="CountryPublish" class="onlinefrontlines.countryedit.web.CountryPublishAction">
+		<interceptor>onlinefrontlines.auth.web.UserAuthenticationInterceptor</interceptor>
+		<result type="redirect">CountryList.do</result>
+	</action>
+
+	<action name="CountryPublishAdmin" class="onlinefrontlines.countryedit.web.CountryPublishAction">
+		<interceptor>onlinefrontlines.auth.web.AdminAuthenticationInterceptor</interceptor>
+		<result type="redirect">CountryListToBePublished.do</result>
+	</action>
+
+	<action name="CountryEdit" method="input" class="onlinefrontlines.countryedit.web.CountryEditAction">
+		<interceptor>onlinefrontlines.auth.web.UserAuthenticationInterceptor</interceptor>
+		<result name="input">/WEB-INF/jsp/countryedit/CountryEdit.jsp</result>
+	</action>
+
+	<action name="DoCountryEdit" class="onlinefrontlines.countryedit.web.CountryEditAction">
+		<interceptor>onlinefrontlines.auth.web.UserAuthenticationInterceptor</interceptor>
+		<result name="input">/WEB-INF/jsp/countryedit/CountryEdit.jsp</result>
+		<result name="success">/WEB-INF/jsp/countryedit/CountryEdit.jsp</result>
+	</action>
+
+	<!-- Game -->
+	
+	<action name="GameConfig" class="onlinefrontlines.game.web.GameConfigAction">
+	   	<interceptor>onlinefrontlines.auth.web.AdminAuthenticationInterceptor</interceptor>
+		<result name="success">/WEB-INF/jsp/game/GameConfig.jsp</result>
+	</action>	  
+	
+	<action name="GameBalance" class="onlinefrontlines.game.web.GameBalanceAction">
+	   	<interceptor>onlinefrontlines.auth.web.AdminAuthenticationInterceptor</interceptor>
+		<result name="success">/WEB-INF/jsp/game/GameBalance.jsp</result>
+	</action>	  
+	
+	<action name="CountryBalance" class="onlinefrontlines.game.web.CountryBalanceAction">
+	   	<interceptor>onlinefrontlines.auth.web.AdminAuthenticationInterceptor</interceptor>
+		<result name="success">/WEB-INF/jsp/game/CountryBalance.jsp</result>
+	</action>	  
+
+	<action name="GameResults" class="onlinefrontlines.game.web.GameResultsAction">
+	   	<interceptor>onlinefrontlines.auth.web.AdminAuthenticationInterceptor</interceptor>
+		<result name="success">/WEB-INF/jsp/game/GameResults.jsp</result>
+	</action>	  
+	
+	<action name="GameCreate" class="onlinefrontlines.game.web.GameCreateAction">
+		<result name="success">/WEB-INF/jsp/game/GameCreate.jsp</result>
+	</action>	  
+
+	<action name="DoGameCreate" class="onlinefrontlines.game.web.GameDoCreateAction">
+	</action>	  
+
+	<action name="GameJoin" class="onlinefrontlines.game.web.GameJoinAction">
+		<result name="success">/WEB-INF/jsp/game/GameJoin.jsp</result>
+	</action>	  
+
+	<action name="GameDoJoin" class="onlinefrontlines.game.web.GameDoJoinAction">
+	</action>	  
+
+	<action name="GameContinue" class="onlinefrontlines.game.web.GameContinueAction">
+		<result name="success">/WEB-INF/jsp/game/GameContinue.jsp</result>
+	</action>	  
+
+	<action name="GamePlay" class="onlinefrontlines.game.web.GamePlayAction">
+		<result name="success">/WEB-INF/jsp/game/GamePlay.jsp</result>
+	</action>	  
+
+	<action name="GameReplay" class="onlinefrontlines.game.web.GameReplayAction">
+		<interceptor>onlinefrontlines.web.WebInterceptor</interceptor>
+		<result name="success">/WEB-INF/jsp/game/GamePlay.jsp</result>
+	</action>	  
+
+	<action name="GameLoad" class="onlinefrontlines.game.web.GameLoadAction">
+		<interceptor>onlinefrontlines.web.WebInterceptor</interceptor>
+		<result name="success">/WEB-INF/jsp/game/GameLoad.jsp</result>
+		<result name="error">/WEB-INF/jsp/ErrorXML.jsp</result>
+		<result name="redirect">/WEB-INF/jsp/ErrorXML.jsp</result>
+	</action>	  
+
+	<action name="GameExecute" method="input" class="onlinefrontlines.game.web.GameExecuteAction">
+		<interceptor>onlinefrontlines.auth.web.AdminAuthenticationInterceptor</interceptor>
+		<result name="input">/WEB-INF/jsp/game/GameExecute.jsp</result>
+	</action>
+
+	<action name="GameDoExecute" class="onlinefrontlines.game.web.GameExecuteAction">
+		<interceptor>onlinefrontlines.auth.web.AdminAuthenticationInterceptor</interceptor>
+		<result name="input">/WEB-INF/jsp/game/GameExecute.jsp</result>
+		<result name="success">/WEB-INF/jsp/game/GameExecute.jsp</result>
+	</action>
+	
+	<action name="UnitEdit" class="onlinefrontlines.game.web.UnitEditAction">
+	   	<interceptor>onlinefrontlines.auth.web.AdminAuthenticationInterceptor</interceptor>
+		<result name="input">/WEB-INF/jsp/game/UnitEdit.jsp</result>
+		<result name="success">/WEB-INF/jsp/game/UnitEdit.jsp</result>
+	</action>
+
+	<!-- Feedback -->
+
+	<action name="FeedbackCreate" method="input" class="onlinefrontlines.feedback.web.FeedbackCreateAction">
+		<result name="input">/WEB-INF/jsp/feedback/FeedbackCreate.jsp</result>
+	</action>
+
+	<action name="DoFeedbackCreate" class="onlinefrontlines.feedback.web.FeedbackCreateAction">
+		<result name="input">/WEB-INF/jsp/feedback/FeedbackCreate.jsp</result>
+		<result name="success">/WEB-INF/jsp/feedback/FeedbackCreateDone.jsp</result>
+	</action>
+	
+	<action name="FeedbackReply" method="input" class="onlinefrontlines.feedback.web.FeedbackReplyAction">
+		<result name="input">/WEB-INF/jsp/feedback/FeedbackReply.jsp</result>
+	</action>
+
+	<action name="DoFeedbackReply" class="onlinefrontlines.feedback.web.FeedbackReplyAction">
+		<result name="input">/WEB-INF/jsp/feedback/FeedbackReply.jsp</result>
+	</action>
+
+	<action name="FeedbackList" class="onlinefrontlines.feedback.web.FeedbackListAction">
+		<interceptor>onlinefrontlines.web.WebInterceptor</interceptor>
+		<result name="success">/WEB-INF/jsp/feedback/FeedbackList.jsp</result>
+	</action>
+	
+	<action name="MyFeedbackList" class="onlinefrontlines.feedback.web.MyFeedbackListAction">
+		<result name="success">/WEB-INF/jsp/feedback/FeedbackList.jsp</result>
+	</action>
+
+	<action name="FeedbackRequiredList" class="onlinefrontlines.feedback.web.FeedbackRequiredListAction">
+		<result name="success">/WEB-INF/jsp/feedback/FeedbackRequiredList.jsp</result>
+	</action>
+	
+	<!-- Lobby Edit -->	 
+	   
+	<action name="LobbyList" class="onlinefrontlines.lobbyedit.web.LobbyListAction">
+	   	 <interceptor>onlinefrontlines.auth.web.AdminAuthenticationInterceptor</interceptor>
+		 <result name="success">/WEB-INF/jsp/lobbyedit/LobbyList.jsp</result>
+	</action>
+
+	<action name="LobbyEdit">
+	   	<interceptor>onlinefrontlines.auth.web.AdminAuthenticationInterceptor</interceptor>
+		<result>/WEB-INF/jsp/lobbyedit/LobbyEdit.jsp</result>
+	</action>
+
+	<action name="LobbyEditLoad" class="onlinefrontlines.lobbyedit.web.LobbyEditLoadAction">
+	   	<interceptor>onlinefrontlines.auth.web.AdminAuthenticationInterceptor</interceptor>
+		<result name="success">/WEB-INF/jsp/lobbyedit/LobbyEditLoad.jsp</result>
+		<result name="error">/WEB-INF/jsp/ErrorXML.jsp</result>
+		<result name="redirect">/WEB-INF/jsp/ErrorXML.jsp</result>
+	</action>
+
+	<action name="LobbyEditSave" class="onlinefrontlines.lobbyedit.web.LobbyEditSaveAction">
+	   	<interceptor>onlinefrontlines.auth.web.AdminAuthenticationInterceptor</interceptor>
+		<result name="success">/WEB-INF/jsp/lobbyedit/LobbyEditSave.jsp</result>
+		<result name="error">/WEB-INF/jsp/ErrorXML.jsp</result>
+		<result name="redirect">/WEB-INF/jsp/ErrorXML.jsp</result>
+	</action>
+	
+	 <action name="LobbyCreate" method="input" class="onlinefrontlines.lobbyedit.web.LobbyCreateAction">
+	  	<interceptor>onlinefrontlines.auth.web.AdminAuthenticationInterceptor</interceptor>
+		<result name="input">/WEB-INF/jsp/lobbyedit/LobbyCreate.jsp</result>
+	</action>
+
+	<action name="DoLobbyCreate" class="onlinefrontlines.lobbyedit.web.LobbyCreateAction">
+	   	<interceptor>onlinefrontlines.auth.web.AdminAuthenticationInterceptor</interceptor>
+		<result name="input">/WEB-INF/jsp/lobbyedit/LobbyCreate.jsp</result>
+		<result type="redirect">LobbyList.do</result>
+	</action>
+
+	 <action name="LobbyProperties" method="input" class="onlinefrontlines.lobbyedit.web.LobbyPropertiesAction">
+	  	<interceptor>onlinefrontlines.auth.web.AdminAuthenticationInterceptor</interceptor>
+		<result name="input">/WEB-INF/jsp/lobbyedit/LobbyProperties.jsp</result>
+	</action>
+
+	<action name="DoLobbyProperties" class="onlinefrontlines.lobbyedit.web.LobbyPropertiesAction">
+	   	<interceptor>onlinefrontlines.auth.web.AdminAuthenticationInterceptor</interceptor>
+		<result name="input">/WEB-INF/jsp/lobbyedit/LobbyProperties.jsp</result>
+		<result type="redirect">LobbyList.do</result>
+	</action>
+
+	<action name="LobbyDelete" class="onlinefrontlines.lobbyedit.web.LobbyDeleteAction">
+	   	<interceptor>onlinefrontlines.auth.web.AdminAuthenticationInterceptor</interceptor>
+		<result type="redirect">LobbyList.do</result>
+	</action>
+
+	<!-- World Map -->	 
+	   
+	<action name="WorldMap" class="onlinefrontlines.worldmap.web.WorldMapAction">
+		<interceptor>onlinefrontlines.auth.web.UserAuthenticationInterceptor</interceptor>
+		<result name="success">/WEB-INF/jsp/worldmap/WorldMap.jsp</result>
+	</action>
+
+	<!-- Lobby -->	 
+	   
+	<action name="Lobby" class="onlinefrontlines.lobby.web.LobbyAction">
+		<interceptor>onlinefrontlines.auth.web.UserAuthenticationInterceptor</interceptor>
+		<result>/WEB-INF/jsp/lobby/Lobby.jsp</result>
+	</action>
+
+	<action name="LobbyLoad" class="onlinefrontlines.lobby.web.LobbyLoadAction">
+		<interceptor>onlinefrontlines.auth.web.UserAuthenticationInterceptor</interceptor>
+		<result name="success">/WEB-INF/jsp/lobby/LobbyLoad.jsp</result>
+		<result name="error">/WEB-INF/jsp/ErrorXML.jsp</result>
+		<result name="redirect">/WEB-INF/jsp/ErrorXML.jsp</result>
+	</action>
+
+	<!-- User stats -->	 
+	   
+	<action name="MyStats" class="onlinefrontlines.userstats.web.MyStatsAction">
+		<result name="success">/WEB-INF/jsp/userstats/UserStats.jsp</result>
+	</action>
+
+	<action name="UserStats" class="onlinefrontlines.userstats.web.UserStatsAction">
+		<interceptor>onlinefrontlines.web.WebInterceptor</interceptor>
+		<result name="success">/WEB-INF/jsp/userstats/UserStats.jsp</result>
+	</action>
+
+	<action name="UserStatsList" class="onlinefrontlines.userstats.web.UserStatsListAction">
+		<interceptor>onlinefrontlines.web.WebInterceptor</interceptor>
+		<result name="success">/WEB-INF/jsp/userstats/UserStatsList.jsp</result>
+	</action>
+
+	<!-- Play By Mail -->
+
+	<action name="PBMCreateInvitation" class="onlinefrontlines.playbymail.web.PBMCreateInvitationAction">
+		<interceptor>onlinefrontlines.auth.web.FBAuthenticationInterceptor</interceptor>
+		<result name="success">/WEB-INF/jsp/playbymail/PBMCreateInvitation.jsp</result>
+	</action>	  
+
+	<action name="PBMShowInvitation" class="onlinefrontlines.playbymail.web.PBMShowInvitationAction">
+		<interceptor>onlinefrontlines.auth.web.FBAuthenticationInterceptor</interceptor>
+		<result name="success">/WEB-INF/jsp/playbymail/PBMShowInvitation.jsp</result>
+	</action>
+		
+	<action name="PBMAcceptInvitation" class="onlinefrontlines.playbymail.web.PBMAcceptInvitationAction">
+		<interceptor>onlinefrontlines.auth.web.FBAuthenticationInterceptor</interceptor>
+	</action>
+
+	<action name="PBMDeclineInvitation" class="onlinefrontlines.playbymail.web.PBMDeclineInvitationAction">
+		<interceptor>onlinefrontlines.auth.web.FBAuthenticationInterceptor</interceptor>
+		<result name="success">/WEB-INF/jsp/playbymail/PBMDeclineInvitation.jsp</result>
+	</action>
+
+	<!-- Help -->
+	
+	<action name="HelpUnit" class="onlinefrontlines.help.web.HelpUnitAction">
+		<interceptor>onlinefrontlines.web.WebInterceptor</interceptor>
+		<result>/WEB-INF/jsp/help/HelpUnit.jsp</result>
+	</action>
+
+	<action name="HelpTerrain" class="onlinefrontlines.help.web.HelpTerrainAction">
+		<interceptor>onlinefrontlines.web.WebInterceptor</interceptor>
+		<result>/WEB-INF/jsp/help/HelpTerrain.jsp</result>
+	</action>
+	
+	<action name="HelpScreens">
+		<interceptor>onlinefrontlines.web.WebInterceptor</interceptor>
+		<result>/WEB-INF/jsp/help/HelpScreens.jsp</result>
+	</action>
+
+	<action name="HelpRules" class="onlinefrontlines.help.web.HelpRulesAction">
+		<interceptor>onlinefrontlines.web.WebInterceptor</interceptor>
+		<result>/WEB-INF/jsp/help/HelpRules.jsp</result>
+	</action>
+
+	<action name="HelpGeneral" class="onlinefrontlines.help.web.HelpGeneralAction">
+		<interceptor>onlinefrontlines.web.WebInterceptor</interceptor>
+		<result>/WEB-INF/jsp/help/HelpGeneral.jsp</result>
+	</action>
+
+	<!-- TV -->
+	
+	<action name="TV" class="onlinefrontlines.tv.web.TVAction">
+		<interceptor>onlinefrontlines.web.WebInterceptor</interceptor>
+		<result>/WEB-INF/jsp/tv/TV.jsp</result>
+	</action>
+
+	<!-- Admin -->
+	
+	<action name="Admin">
+		<interceptor>onlinefrontlines.auth.web.AdminAuthenticationInterceptor</interceptor>
+		<result>/WEB-INF/jsp/admin/Admin.jsp</result>
+	</action>
+
+	<action name="Reset" class="onlinefrontlines.admin.web.ResetAction">
+		<interceptor>onlinefrontlines.auth.web.AdminAuthenticationInterceptor</interceptor>
+		<result type="redirect">Admin.do</result>
+	</action>
+
+	<action name="ForceGC" class="onlinefrontlines.admin.web.ForceGCAction">
+		<interceptor>onlinefrontlines.auth.web.AdminAuthenticationInterceptor</interceptor>
+		<result type="redirect">ServerInfo.do</result>
+	</action>
+
+	<action name="ServerInfo" class="onlinefrontlines.admin.web.ServerInfoAction">
+		<interceptor>onlinefrontlines.auth.web.AdminAuthenticationInterceptor</interceptor>
+		<result>/WEB-INF/jsp/admin/ServerInfo.jsp</result>
+	</action>
+
+	<!-- Commented out: Too destructive to enable by default 
+	<action name="GenerateDummyData" class="onlinefrontlines.admin.web.GenerateDummyData">
+		<interceptor>onlinefrontlines.auth.web.AdminAuthenticationInterceptor</interceptor>
+		<result type="redirect">Admin.do</result>
+	</action>
+	-->
+
+	<action name="RunUnitTests" class="onlinefrontlines.admin.web.RunUnitTests">
+		<interceptor>onlinefrontlines.auth.web.AdminAuthenticationInterceptor</interceptor>
+		<result>/WEB-INF/jsp/admin/RunUnitTests.jsp</result>
+	</action>
+
+	<action name="ViewTimeAccumulators" class="onlinefrontlines.profiler.web.ViewTimeAccumulatorsAction">
+		<interceptor>onlinefrontlines.auth.web.AdminAuthenticationInterceptor</interceptor>
+		<result>/WEB-INF/jsp/profiler/ViewTimeAccumulators.jsp</result>
+	</action>
+
+	<action name="ViewTimeSeries" class="onlinefrontlines.profiler.web.ViewTimeSeriesAction">
+		<interceptor>onlinefrontlines.auth.web.AdminAuthenticationInterceptor</interceptor>
+		<result>/WEB-INF/jsp/profiler/ViewTimeSeries.jsp</result>
+	</action>
+
+	<action name="ResetProfiler" class="onlinefrontlines.profiler.web.ResetProfilerAction">
+		<interceptor>onlinefrontlines.auth.web.AdminAuthenticationInterceptor</interceptor>
+		<result type="redirect">Admin.do</result>
+	</action>
+
+</actions>

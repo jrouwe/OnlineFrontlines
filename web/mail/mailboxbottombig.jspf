@@ -1,0 +1,6 @@
+			</td>
+			<td style="width: 11px; height: 100px; <%=td%>"><img src="${applicationScope.assetsUrl}/layout/box_right_100.png" alt="" style="width: 11px; height: 100px; <%=img%>"/></td>
+		</tr>
+	</table>
+</td></tr>
+<tr><td style="width: 750px; height: 11px; <%=td%>"><img src="${applicationScope.assetsUrl}/layout/box_750_bottom.png" alt="" style="width: 750px; height: 11px; <%=img%>"/></td></tr>

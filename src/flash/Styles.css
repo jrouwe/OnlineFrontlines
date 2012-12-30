@@ -1,0 +1,163 @@
+/*
+//------------------------------
+//  Fonts
+//------------------------------
+*/
+@font-face {
+	src:url("assets/fonts/gunplay.ttf");
+	fontFamily: "gunplay";
+}
+
+@font-face {
+	src:url("assets/fonts/tahoma.ttf");
+	fontFamily: "tahoma";
+}
+
+.default {
+	fontFamily: "tahoma";
+	fontSize: 11;
+	color: #FFFFFF;
+}
+
+.messageBox {
+	fontFamily: "tahoma";
+	fontSize: 16;
+	color: #FFFFFF;
+	textAlign: "center";
+}
+
+.tipsWindow {
+	fontFamily: "tahoma";
+	fontSize: 14;
+	color: #FFFFFF;
+	textAlign: "left";
+}
+
+.scoreWindowPlayerName {
+	fontFamily: "tahoma";
+	fontSize: 12;
+	color: #B6B048;
+}
+
+.scoreWindowStat {
+	fontFamily: "tahoma";
+	fontSize: 8;
+	color: #BEBEBE;
+}
+
+.battleViewArmour {
+	fontFamily: "gunplay";
+	fontSize: 18;
+	color: #FFFFFF;
+}
+
+.battleViewModifier {
+	fontFamily: "tahoma";
+	fontSize: 9;
+	color: #FFFFFF;
+}
+
+.helpWindowUnitName {
+	fontFamily: "tahoma";
+	fontSize: 9;
+	color: #FFFFFF;
+}
+
+.helpWindowPoints {
+	fontFamily: "gunplay";
+	fontSize: 22;
+	color: #FFFFFF;
+}
+
+.helpWindowDescription {
+	fontFamily: "tahoma";
+	fontSize: 9;
+	color: #FFFFFF;
+}
+
+.challengeWindowTitle {
+	fontFamily: "tahoma";
+	fontSize: 12;
+	color: #CDD13C;
+	textAlign: "center";
+}
+
+.chatTextField {
+	fontFamily: "tahoma";
+	fontSize: 11;
+	color: #FFFFFF;
+	backgroundAlpha: 0;
+	borderStyle: "none";
+}
+
+.lobbyLegend {
+	fontFamily: "tahoma";
+	fontSize: 9;
+	color: #FFFFFF;
+}
+
+/*
+//------------------------------
+//  Button
+//------------------------------
+*/
+.messageBoxButton
+{
+	upSkin: Embed(source='assets/msg_box/button_up.png'); 
+	downSkin: Embed(source='assets/msg_box/button_down.png'); 
+	overSkin: Embed(source='assets/msg_box/button_over.png'); 
+	disabledSkin: Embed(source='assets/msg_box/button_disabled.png'); 
+	color: #efefef;
+	textRollOverColor: #ffffff;
+	textSelectedColor: #bfbfbf;
+	disabledColor: #7f7f7f;
+	fontFamily: "tahoma";
+	fontSize: 10;
+}
+
+.sendButton
+{
+	upSkin: Embed(source='assets/chat_window/chat_up.png'); 
+	downSkin: Embed(source='assets/chat_window/chat_down.png'); 
+	overSkin: Embed(source='assets/chat_window/chat_over.png'); 
+	color: #efefef;
+	textRollOverColor: #ffffff;
+	textSelectedColor: #bfbfbf;
+	disabledColor: #7f7f7f;
+	fontFamily: "tahoma";
+	fontSize: 10;
+}
+
+.viewButton
+{
+	upSkin: Embed(source='assets/lobby/view_up.png'); 
+	downSkin: Embed(source='assets/lobby/view_down.png'); 
+	overSkin: Embed(source='assets/lobby/view_over.png'); 
+	disabledSkin: Embed(source='assets/lobby/view_disabled.png'); 
+}
+
+/*
+//------------------------------
+//  ScrollBar
+//------------------------------
+*/
+ScrollBar
+{
+	downArrowDisabledSkin: Embed(source="assets/flex_skins/images/ScrollArrowDown_disabledSkin.png");
+	downArrowDownSkin: Embed(source="assets/flex_skins/images/ScrollArrowDown_downSkin.png");
+	downArrowOverSkin: Embed(source="assets/flex_skins/images/ScrollArrowDown_overSkin.png");
+	downArrowUpSkin: Embed(source="assets/flex_skins/images/ScrollArrowDown_upSkin.png");
+	thumbDownSkin: Embed(source="assets/flex_skins/images/ScrollThumb_downSkin.png",
+		scaleGridLeft="1", scaleGridTop="5", scaleGridRight="8", scaleGridBottom="48");
+	thumbIcon: Embed(source="assets/flex_skins/images/ScrollBar_thumbIcon.png");
+	thumbOverSkin: Embed(source="assets/flex_skins/images/ScrollThumb_overSkin.png",
+		scaleGridLeft="1", scaleGridTop="5", scaleGridRight="8", scaleGridBottom="48");
+	thumbUpSkin: Embed(source="assets/flex_skins/images/ScrollThumb_upSkin.png",
+		scaleGridLeft="1", scaleGridTop="5", scaleGridRight="8", scaleGridBottom="48");
+	trackSkin: Embed(source="assets/flex_skins/images/ScrollTrack_Skin.png");
+	upArrowDisabledSkin: Embed(source="assets/flex_skins/images/ScrollArrowUp_disabledSkin.png");
+	upArrowDownSkin: Embed(source="assets/flex_skins/images/ScrollArrowUp_downSkin.png");
+	upArrowOverSkin: Embed(source="assets/flex_skins/images/ScrollArrowUp_overSkin.png");
+	upArrowUpSkin: Embed(source="assets/flex_skins/images/ScrollArrowUp_upSkin.png");
+}
+

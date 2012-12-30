@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<mx:Application 
+	xmlns:mx="http://www.adobe.com/2006/mxml"
+	xmlns:utils="onlinefrontlines.utils.*"
+	xmlns:lobby="onlinefrontlines.lobby.*"
+	styleName="plain"
+	horizontalScrollPolicy="off"
+	verticalScrollPolicy="off"
+	width="990"
+	height="595"
+	backgroundColor="#00000000"
+	preloader="GeneralPreloader"
+	creationComplete="initApp()">
+	
+	<mx:Script>
+		<![CDATA[
+	        import onlinefrontlines.lobby.Main;
+			
+			public function initApp() : void 			
+			{
+	            Main.run();
+			}
+		]]>
+	</mx:Script>
+
+	<mx:Style source="Styles.css"/>
+
+	<mx:Canvas id="canvas">
+	
+		<mx:Image x="0" y="0" id="leftFrame" source="@Embed(source='assets/lobby/left_frame.png')"/>
+		
+		<mx:Label x="72" y="27" id="onlineCount" styleName="default" selectable="false" text="-"/>
+		
+		<mx:Canvas x="13" y="63" width="147" height="125" id="userList" horizontalScrollPolicy="off"/>
+		
+		<mx:TextArea x="11" y="228" width="147" height="296" styleName="chatTextField" editable="false" id="receivedMessages"/>
+		<mx:TextInput x="11" y="550" width="147" height="18" styleName="chatTextField" id="editMessage"/>
+		<mx:Button x="31" y="572" height="17" styleName="messageBoxButton" label="Send Message" id="sendButton"/>
+		
+		<lobby:LobbyConfig x="170" y="0" id="lobbyConfig"/>
+		
+		<mx:Button x="180" y="557" width="165" height="28" id="playGameButton" toolTip="Start playing a game" visible="true" 
+			upSkin="@Embed(source='assets/lobby/startgame_up.png')" 
+			overSkin="@Embed(source='assets/lobby/startgame_over.png')" 
+			downSkin="@Embed(source='assets/lobby/startgame_down.png')"
+			disabledSkin="@Embed(source='assets/lobby/startgame_up.png')"/>
+
+		<utils:Throbber x="750" y="5" id="throbber"/>
+
+		<mx:Image x="820" y="0" id="rightFrame" source="@Embed(source='assets/lobby/right_frame.png')"/>
+
+		<mx:Image x="893" y="34" id="playerArmy"/>
+		<mx:Label x="903" y="29" width="75" id="playerName" styleName="default" selectable="false"/>
+		<mx:Label x="893" y="47" id="playerLevel" styleName="default" selectable="false"/>
+		<mx:Image x="944" y="53" id="playerRank"/>
+		<mx:Label x="893" y="65" id="playerLeaderboardPosition" styleName="default" selectable="false"/>
+		<mx:Label x="893" y="83" id="playerFeedbackScore" styleName="default" selectable="false"/>
+		<mx:Label x="893" y="101" id="playerGamesWon" styleName="default" selectable="false"/>
+		<mx:Label x="944" y="101" id="playerGamesLost" styleName="default" selectable="false"/>
+
+		<mx:Label x="893" y="155" width="80" id="mapName" styleName="default" selectable="false"/>
+		<mx:Label x="893" y="173" width="80" id="mapType" styleName="default" selectable="false"/>
+		<mx:Label x="893" y="191" width="80" id="armyUnits" styleName="default" selectable="false"/>
+
+		<mx:Image x="830" y="249" id="legendImage1"/>
+		<mx:Image x="830" y="274" id="legendImage2"/>
+		<mx:Image x="830" y="299" id="legendImage3"/>
+		<mx:Image x="830" y="324" id="legendImage4"/>
+		<mx:Image x="830" y="349" id="legendImage5"/>
+		<mx:Image x="830" y="374" id="legendImage6"/>
+		<mx:Image x="830" y="399" id="legendImage7"/>
+		<mx:Image x="830" y="424" id="legendImage8"/>
+		<mx:Image x="830" y="449" id="legendImage9"/>
+		<mx:Image x="830" y="474" id="legendImage10"/>
+		<mx:Image x="830" y="499" id="legendImage11"/>
+		
+		<mx:Label x="873" y="251" styleName="lobbyLegend" selectable="false" text="Unavailable"/>
+		<mx:Label x="873" y="276" styleName="lobbyLegend" selectable="false" text="Click to start attack"/>
+		<mx:Label x="873" y="301" styleName="lobbyLegend" selectable="false" text="Click to attack"/>
+		<mx:Label x="873" y="326" styleName="lobbyLegend" selectable="false" text="You have attacked"/>
+		<mx:Label x="873" y="351" styleName="lobbyLegend" selectable="false" text="Click to defend"/>
+		<mx:Label x="873" y="376" styleName="lobbyLegend" selectable="false" text="Click for friendly game"/>
+		<mx:Label x="873" y="401" styleName="lobbyLegend" selectable="false" text="You"/>
+		<mx:Label x="873" y="426" styleName="lobbyLegend" selectable="false" text="Enemy player"/>
+		<mx:Label x="873" y="451" styleName="lobbyLegend" selectable="false" text="Friendly player"/>
+		<mx:Label x="873" y="476" styleName="lobbyLegend" selectable="false" text="Capture points"/>
+		<mx:Label x="873" y="501" styleName="lobbyLegend" selectable="false" text="Games in progress"/>
+
+		<mx:Image x="893" y="541" id="countryBarRed" scaleContent="false" source="@Embed(source='assets/lobby/country_bar_red.png')"/>
+		<mx:Image x="893" y="574" id="countryBarBlue" scaleContent="false" source="@Embed(source='assets/lobby/country_bar_blue.png')"/>
+
+		<mx:Canvas id="balloons"/>
+
+		<utils:Greyout id="greyOut"/>
+
+		<lobby:ChallengeWindow id="challengeWindow" x="370" y="127" width="250" height="380"/>
+		
+		<utils:MsgBox id="msgBox" x="314" y="230" width="280" height="139"/>
+
+	</mx:Canvas>
+	
+</mx:Application>

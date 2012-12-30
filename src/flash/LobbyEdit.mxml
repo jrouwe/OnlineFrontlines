@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<mx:Application 
+	xmlns:mx="http://www.adobe.com/2006/mxml"
+	xmlns:utils="onlinefrontlines.utils.*"
+	xmlns:lobby="onlinefrontlines.lobby.*"
+	xmlns:lobbyedit="onlinefrontlines.lobbyedit.*"
+	styleName="plain"
+	horizontalScrollPolicy="off"
+	verticalScrollPolicy="off"
+	width="990"
+	height="595"
+	backgroundColor="#7F7F7F"
+	preloader="GeneralPreloader"
+	creationComplete="initApp()">
+	
+	<mx:Script>
+		<![CDATA[
+	        import onlinefrontlines.lobbyedit.Main;
+			
+			public function initApp() : void 			
+			{
+	            Main.run();
+			}
+		]]>
+	</mx:Script>
+
+	<mx:Style source="Styles.css"/>
+
+	<mx:Canvas id="canvas">
+	
+		<lobby:LobbyConfig id="lobbyConfig"/>
+		
+		<mx:Label x="830" y="10" styleName="mediumFont" color="#000000" selectable="false" text="Selected Level"/>
+
+		<mx:List id="countryConfigs" x="830" y="30" width="160" height="380"/>
+		
+		<mx:Label x="830" y="420" styleName="mediumFont" color="#000000"  selectable="false" text="Brush Mode"/>
+		<mx:RadioButton x="830" y="440" groupName="brushMode" id="brush1" label="1 Tile"/>
+		<mx:RadioButton x="830" y="460" groupName="brushMode" id="brush7" label="7 Tiles"/>
+		<mx:RadioButton x="830" y="480" groupName="brushMode" id="brushFill" label="Fill"/>
+
+		<mx:Button x="830" y="510" width="80" height="22" id="saveButton" label="Save"/>
+		
+		<utils:Greyout id="greyOut"/>
+		
+		<utils:MsgBox id="msgBox" x="314" y="230" width="280" height="139"/>
+
+	</mx:Canvas>
+	
+</mx:Application>

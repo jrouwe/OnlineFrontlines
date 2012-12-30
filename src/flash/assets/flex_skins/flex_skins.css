@@ -1,0 +1,621 @@
+
+/*
+//------------------------------
+//  AccordionHeader
+//------------------------------
+*/
+AccordionHeader
+{
+
+	disabledSkin: Embed(source="images/AccordionHeader_disabledSkin.png",
+		scaleGridLeft="1", scaleGridTop="1", scaleGridRight="151", scaleGridBottom="21");
+	downSkin: Embed(source="images/AccordionHeader_downSkin.png",
+		scaleGridLeft="1", scaleGridTop="1", scaleGridRight="151", scaleGridBottom="21");
+	overSkin: Embed(source="images/AccordionHeader_overSkin.png",
+		scaleGridLeft="1", scaleGridTop="1", scaleGridRight="151", scaleGridBottom="21");
+	selectedDisabledSkin: Embed(source="images/AccordionHeader_disabledSkin.png",
+		scaleGridLeft="1", scaleGridTop="1", scaleGridRight="151", scaleGridBottom="21");
+	selectedDownSkin: Embed(source="images/AccordionHeader_downSkin.png",
+		scaleGridLeft="1", scaleGridTop="1", scaleGridRight="151", scaleGridBottom="21");
+	selectedOverSkin: Embed(source="images/AccordionHeader_overSkin.png",
+		scaleGridLeft="1", scaleGridTop="1", scaleGridRight="151", scaleGridBottom="21");
+	selectedUpSkin: Embed(source="images/AccordionHeader_selectedSkin.png",
+		scaleGridLeft="1", scaleGridTop="1", scaleGridRight="151", scaleGridBottom="21");
+	upSkin: Embed(source="images/AccordionHeader_upSkin.png",
+		scaleGridLeft="1", scaleGridTop="1", scaleGridRight="151", scaleGridBottom="21");
+
+}
+
+/*
+//------------------------------
+//  Application
+//------------------------------
+*/
+Application
+{
+	backgroundImage: Embed(source="images/BackgroundImage.png");
+}
+
+/*
+//------------------------------
+//  Button
+//------------------------------
+*/
+Button
+{
+	disabledSkin: Embed(source="images/Button_disabledSkin.png",
+		scaleGridLeft="4", scaleGridTop="4", scaleGridRight="60", scaleGridBottom="18");
+	downSkin: Embed(source="images/Button_downSkin.png",
+		scaleGridLeft="4", scaleGridTop="4", scaleGridRight="60", scaleGridBottom="18");
+	overSkin: Embed(source="images/Button_overSkin.png",
+		scaleGridLeft="4", scaleGridTop="4", scaleGridRight="60", scaleGridBottom="18");
+	upSkin: Embed(source="images/Button_upSkin.png",
+		scaleGridLeft="4", scaleGridTop="4", scaleGridRight="60", scaleGridBottom="18");
+}
+
+/* 
+//------------------------------ 
+//  ButtonBar 
+//------------------------------ 
+*/ 
+
+ButtonBar 
+{ 
+        buttonStyleName: "buttonBarButton"; 
+        firstButtonStyleName: "firstButtonBarButton"; 
+        lastButtonStyleName: "lastButtonBarButton"; 
+}
+
+ToggleButtonBar 
+{ 
+        buttonStyleName: "buttonBarButton"; 
+        firstButtonStyleName: "firstButtonBarButton"; 
+        lastButtonStyleName: "lastButtonBarButton"; 
+}
+
+/* 
+//------------------------------ 
+//  ButtonBarButtons 
+//------------------------------ 
+*/ 
+
+.firstButtonBarButton 
+{ 
+    disabledSkin: Embed(source="images/ButtonBar_firstDisabledSkin.png",
+		scaleGridLeft="4", scaleGridTop="4", scaleGridRight="42", scaleGridBottom="18"); 
+    downSkin: Embed(source="images/ButtonBar_firstDownSkin.png",
+		scaleGridLeft="4", scaleGridTop="4", scaleGridRight="42", scaleGridBottom="18"); 
+    overSkin: Embed(source="images/ButtonBar_firstOverSkin.png",
+		scaleGridLeft="4", scaleGridTop="4", scaleGridRight="42", scaleGridBottom="18"); 
+    selectedDisabledSkin: Embed(source="images/ButtonBar_firstSelectedDisabledSkin.png",
+		scaleGridLeft="4", scaleGridTop="4", scaleGridRight="42", scaleGridBottom="18"); 
+    selectedDownSkin: Embed(source="images/ButtonBar_firstSelectedUpSkin.png",
+		scaleGridLeft="4", scaleGridTop="4", scaleGridRight="42", scaleGridBottom="18"); 
+    selectedOverSkin: Embed(source="images/ButtonBar_firstSelectedUpSkin.png",
+		scaleGridLeft="4", scaleGridTop="4", scaleGridRight="42", scaleGridBottom="18"); 
+    selectedUpSkin: Embed(source="images/ButtonBar_firstSelectedUpSkin.png",
+		scaleGridLeft="4", scaleGridTop="4", scaleGridRight="42", scaleGridBottom="18"); 
+    upSkin: Embed(source="images/ButtonBar_firstUpSkin.png",
+		scaleGridLeft="4", scaleGridTop="4", scaleGridRight="42", scaleGridBottom="18"); 
+}
+.buttonBarButton 
+{ 
+    disabledSkin: Embed(source="images/ButtonBar_buttonDisabledSkin.png",
+		scaleGridLeft="2", scaleGridTop="4", scaleGridRight="42", scaleGridBottom="18"); 
+    downSkin: Embed(source="images/ButtonBar_buttonDownSkin.png",
+		scaleGridLeft="2", scaleGridTop="4", scaleGridRight="42", scaleGridBottom="18"); 
+    overSkin: Embed(source="images/ButtonBar_buttonOverSkin.png",
+		scaleGridLeft="2", scaleGridTop="4", scaleGridRight="42", scaleGridBottom="18"); 
+    selectedDisabledSkin: Embed(source="images/ButtonBar_buttonSelectedDisabledSkin.png",
+		scaleGridLeft="2", scaleGridTop="4", scaleGridRight="42", scaleGridBottom="18"); 
+    selectedDownSkin: Embed(source="images/ButtonBar_buttonSelectedUpSkin.png",
+		scaleGridLeft="2", scaleGridTop="4", scaleGridRight="42", scaleGridBottom="18"); 
+    selectedOverSkin: Embed(source="images/ButtonBar_buttonSelectedUpSkin.png",
+		scaleGridLeft="2", scaleGridTop="4", scaleGridRight="42", scaleGridBottom="18"); 
+    selectedUpSkin: Embed(source="images/ButtonBar_buttonSelectedUpSkin.png",
+		scaleGridLeft="2", scaleGridTop="4", scaleGridRight="42", scaleGridBottom="18"); 
+    upSkin: Embed(source="images/ButtonBar_buttonUpSkin.png",
+		scaleGridLeft="2", scaleGridTop="4", scaleGridRight="42", scaleGridBottom="18"); 
+}
+
+.lastButtonBarButton 
+{ 
+    disabledSkin: Embed(source="images/ButtonBar_lastDisabledSkin.png",
+		scaleGridLeft="2", scaleGridTop="4", scaleGridRight="38", scaleGridBottom="18"); 
+    downSkin: Embed(source="images/ButtonBar_lastDownSkin.png",
+		scaleGridLeft="2", scaleGridTop="4", scaleGridRight="38", scaleGridBottom="18"); 
+    overSkin: Embed(source="images/ButtonBar_lastOverSkin.png",
+		scaleGridLeft="2", scaleGridTop="4", scaleGridRight="38", scaleGridBottom="18"); 
+    selectedDisabledSkin: Embed(source="images/ButtonBar_lastSelectedDisabledSkin.png",
+		scaleGridLeft="2", scaleGridTop="4", scaleGridRight="38", scaleGridBottom="18"); 
+    selectedDownSkin: Embed(source="images/ButtonBar_lastSelectedUpSkin.png",
+		scaleGridLeft="2", scaleGridTop="4", scaleGridRight="38", scaleGridBottom="18"); 
+    selectedOverSkin: Embed(source="images/ButtonBar_lastSelectedUpSkin.png",
+		scaleGridLeft="2", scaleGridTop="4", scaleGridRight="38", scaleGridBottom="18"); 
+    selectedUpSkin: Embed(source="images/ButtonBar_lastSelectedUpSkin.png",
+		scaleGridLeft="2", scaleGridTop="4", scaleGridRight="38", scaleGridBottom="18"); 
+    upSkin: Embed(source="images/ButtonBar_lastUpSkin.png",
+		scaleGridLeft="2", scaleGridTop="4", scaleGridRight="38", scaleGridBottom="18"); 
+}
+
+/*
+//------------------------------
+//  CheckBox
+//------------------------------
+*/
+CheckBox
+{
+	disabledIcon: Embed(source="images/CheckBox_disabledIcon.png");
+	downIcon: Embed(source="images/CheckBox_downIcon.png");
+	overIcon: Embed(source="images/CheckBox_overIcon.png");
+	selectedDisabledIcon: Embed(source="images/CheckBox_selectedDisabledIcon.png");
+	selectedDownIcon: Embed(source="images/CheckBox_selectedDownIcon.png");
+	selectedOverIcon: Embed(source="images/CheckBox_selectedOverIcon.png");
+	selectedUpIcon: Embed(source="images/CheckBox_selectedUpIcon.png");
+	upIcon: Embed(source="images/CheckBox_upIcon.png");
+}		
+
+/*
+//------------------------------
+//  ColorPicker
+//------------------------------
+*/
+ColorPicker
+{
+	disabledSkin: Embed(source="images/ColorPicker_disabledSkin.png",
+		scaleGridLeft="3", scaleGridTop="3", scaleGridRight="14", scaleGridBottom="16");
+	downSkin: Embed(source="images/ColorPicker_downSkin.png",
+		scaleGridLeft="3", scaleGridTop="3", scaleGridRight="14", scaleGridBottom="16");
+	overSkin: Embed(source="images/ColorPicker_overSkin.png",
+		scaleGridLeft="3", scaleGridTop="3", scaleGridRight="14", scaleGridBottom="16");
+	upSkin: Embed(source="images/ColorPicker_upSkin.png",
+		scaleGridLeft="3", scaleGridTop="3", scaleGridRight="14", scaleGridBottom="16");
+}		
+
+/*
+//------------------------------
+//  ComboBox
+//------------------------------
+*/
+ComboBox
+{
+
+	disabledSkin: Embed(source="images/ComboBoxArrow_disabledSkin.png",
+		scaleGridLeft="4", scaleGridTop="4", scaleGridRight="64", scaleGridBottom="18"); 
+	downSkin: Embed(source="images/ComboBoxArrow_downSkin.png",
+		scaleGridLeft="4", scaleGridTop="4", scaleGridRight="64", scaleGridBottom="18"); 
+	editableDisabledSkin: Embed(source="images/ComboBoxArrow_editableDisabledSkin.png",
+		scaleGridLeft="0", scaleGridTop="0", scaleGridRight="17", scaleGridBottom="22");
+	editableDownSkin: Embed(source="images/ComboBoxArrow_editableDownSkin.png",
+		scaleGridLeft="0", scaleGridTop="0", scaleGridRight="17", scaleGridBottom="22");
+	editableOverSkin: Embed(source="images/ComboBoxArrow_editableOverSkin.png",
+		scaleGridLeft="0", scaleGridTop="0", scaleGridRight="17", scaleGridBottom="22");
+	editableUpSkin: Embed(source="images/ComboBoxArrow_editableUpSkin.png",
+		scaleGridLeft="0", scaleGridTop="0", scaleGridRight="17", scaleGridBottom="22");
+	overSkin: Embed(source="images/ComboBoxArrow_overSkin.png",
+		scaleGridLeft="4", scaleGridTop="4", scaleGridRight="64", scaleGridBottom="18"); 
+	upSkin: Embed(source="images/ComboBoxArrow_upSkin.png",
+		scaleGridLeft="4", scaleGridTop="4", scaleGridRight="64", scaleGridBottom="18"); 
+}		
+
+
+/*
+//------------------------------
+//  CursorManager
+//------------------------------
+*/
+CursorManager
+{
+	busyCursor: Embed(source="images/BusyCursor.png");
+	busyCursorBackground: Embed(source="images/BusyCursor.png");
+}
+
+/*
+//------------------------------
+//  DataGrid
+//------------------------------
+*/
+DataGrid
+{
+
+	columnDropIndicatorSkin: Embed(source="images/DataGrid_columnDropIndicatorSkin.png");
+	columnResizeSkin: Embed(source="images/DataGrid_columnResizeSkin.png");
+	headerSeparatorSkin: Embed(source="images/DataGrid_headerSeparatorSkin.png");
+	sortArrowSkin: Embed(source="images/DataGrid_sortArrowSkin.png");
+	stretchCursor: Embed(source="images/DataGrid_stretchCursor.png");
+}
+
+/*
+//------------------------------
+//  DateChooser
+//------------------------------
+*/
+DateChooser
+{
+	nextMonthDisabledSkin: Embed(source="images/DateChooser_nextMonthDisabledSkin.png");
+	nextMonthDownSkin: Embed(source="images/DateChooser_nextMonthDownSkin.png");
+	nextMonthOverSkin: Embed(source="images/DateChooser_nextMonthOverSkin.png");
+	nextMonthUpSkin: Embed(source="images/DateChooser_nextMonthUpSkin.png");
+	prevMonthDisabledSkin: Embed(source="images/DateChooser_prevMonthDisabledSkin.png");
+	prevMonthDownSkin: Embed(source="images/DateChooser_prevMonthDownSkin.png");
+	prevMonthOverSkin: Embed(source="images/DateChooser_prevMonthOverSkin.png");
+	prevMonthUpSkin: Embed(source="images/DateChooser_prevMonthUpSkin.png");
+	
+	nextYearDisabledSkin: Embed(source="images/DateChooser_nextYearDisabledSkin.png");
+	nextYearDownSkin: Embed(source="images/DateChooser_nextYearDownSkin.png");
+	nextYearOverSkin: Embed(source="images/DateChooser_nextYearOverSkin.png");
+	nextYearUpSkin: Embed(source="images/DateChooser_nextYearUpSkin.png");
+	prevYearDisabledSkin: Embed(source="images/DateChooser_prevYearDisabledSkin.png");
+	prevYearDownSkin: Embed(source="images/DateChooser_prevYearDownSkin.png");
+	prevYearOverSkin: Embed(source="images/DateChooser_prevYearOverSkin.png");
+	prevYearUpSkin: Embed(source="images/DateChooser_prevYearUpSkin.png");
+
+	todayIndicatorSkin: Embed(source="images/DateChooser_todayIndicatorSkin.png");	
+	
+	rollOverIndicatorSkin: Embed(source="images/DateChooser_rollOverIndicatorSkin.png");
+	selectionIndicatorSkin: Embed(source="images/DateChooser_selectionIndicatorSkin.png");
+	
+}
+
+/*
+//------------------------------
+//  DateField
+//------------------------------
+*/
+DateField
+{
+	disabledSkin: Embed(source="images/DateField_disabledSkin.png"); 
+	downSkin: Embed(source="images/DateField_downSkin.png"); 
+	overSkin: Embed(source="images/DateField_overSkin.png"); 
+	upSkin: Embed(source="images/DateField_upSkin.png"); 
+}
+
+/*
+//------------------------------
+//  DividedBox
+//------------------------------
+*/
+DividedBox
+{
+	dividerSkin: Embed(source="images/DividedBox_dividerSkin.png");
+	horizontalCursor: Embed(source="images/DividedBox_horizontalCursor.png");
+	verticalCursor: Embed(source="images/DividedBox_verticalCursor.png");
+}
+
+/*
+//------------------------------
+//  DragManager
+//------------------------------
+*/
+DragManager
+{
+	copyCursor: Embed(source="images/DragManager_copyCursor.png");
+
+	defaultDragImageSkin: Embed(source="images/DragManager_defaultDragImageSkin.png",
+		scaleGridLeft="1", scaleGridTop="1", scaleGridRight="19", scaleGridBottom="19");
+
+	linkCursor: Embed(source="images/DragManager_linkCursor.png");
+	moveCursor: Embed(source="images/DragManager_moveCursor.png");
+	rejectCursor: Embed(source="images/DragManager_rejectCursor.png");
+}
+
+/*
+//------------------------------
+//  FormItem
+//------------------------------
+*/
+FormItem
+{
+	indicatorSkin: Embed(source="images/FormItem_indicatorSkin.png");  
+}
+
+/*
+//------------------------------
+//  Image
+//------------------------------
+*/
+Image
+{
+
+	brokenImageSkin: Embed(source="images/Loader_brokenImageSkin.png");
+
+}
+
+/*
+//------------------------------
+//  LinkButton
+//------------------------------
+*/
+LinkButton
+{
+	disabledSkin: Embed(source="images/LinkButton_disabledSkin.png",
+		scaleGridLeft="4", scaleGridTop="4", scaleGridRight="61", scaleGridBottom="18");
+	downSkin: Embed(source="images/LinkButton_downSkin.png",
+		scaleGridLeft="4", scaleGridTop="4", scaleGridRight="61", scaleGridBottom="18");
+	overSkin: Embed(source="images/LinkButton_overSkin.png",
+		scaleGridLeft="4", scaleGridTop="4", scaleGridRight="61", scaleGridBottom="18");
+	upSkin: Embed(source="images/LinkButton_upSkin.png",
+		scaleGridLeft="4", scaleGridTop="4", scaleGridRight="61", scaleGridBottom="18");
+}		
+
+/*
+//------------------------------
+//  Loader
+//------------------------------
+*/
+Loader
+{
+
+	brokenImageSkin: Embed(source="images/Loader_brokenImageSkin.png");
+
+}
+
+/*
+//------------------------------
+//  Menu
+//------------------------------
+*/
+Menu
+{
+	branchIcon: Embed(source="images/Menu_branchIcon.png");
+	branchDisabledIcon: Embed(source="images/Menu_branchDisabledIcon.png");
+	checkIcon: Embed(source="images/Menu_checkIcon.png");
+	checkDisabledIcon: Embed(source="images/Menu_checkDisabledIcon.png");
+	radioIcon: Embed(source="images/Menu_radioIcon.png");
+	radioDisabledIcon: Embed(source="images/Menu_radioDisabledIcon.png");
+	separatorSkin: Embed(source="images/Menu_separatorSkin.png");
+}
+
+/*
+//------------------------------
+//  MenuBar
+//------------------------------
+*/
+MenuBar
+{
+
+	backgroundSkin: Embed(source="images/MenuBar_backgroundSkin.png",
+		scaleGridLeft="1", scaleGridTop="1", scaleGridRight="99", scaleGridBottom="19");
+	itemUpSkin: Embed(source="images/MenuBar_itemUpSkin.png");
+	itemOverSkin: Embed(source="images/MenuBar_itemOverSkin.png");
+	itemDownSkin: Embed(source="images/MenuBar_itemDownSkin.png");
+
+}
+
+/*
+//------------------------------
+//  NumericStepper
+//------------------------------
+*/
+NumericStepper
+{
+
+	downArrowDisabledSkin: Embed(source="images/NumericStepperDownArrow_DisabledSkin.png");
+	downArrowDownSkin: Embed(source="images/NumericStepperDownArrow_DownSkin.png");
+	downArrowOverSkin: Embed(source="images/NumericStepperDownArrow_OverSkin.png");
+	downArrowUpSkin: Embed(source="images/NumericStepperDownArrow_UpSkin.png");
+	upArrowDisabledSkin: Embed(source="images/NumericStepperUpArrow_DisabledSkin.png");
+	upArrowDownSkin: Embed(source="images/NumericStepperUpArrow_DownSkin.png");
+	upArrowOverSkin: Embed(source="images/NumericStepperUpArrow_OverSkin.png");
+	upArrowUpSkin: Embed(source="images/NumericStepperUpArrow_UpSkin.png");
+
+}
+
+/*
+//------------------------------
+//  Panel
+//------------------------------
+*/
+Panel
+{
+
+	closeButtonDisabledSkin: Embed(source="images/Panel_closeButtonDisabledSkin.png");
+	closeButtonDownSkin: Embed(source="images/Panel_closeButtonDownSkin.png");
+	closeButtonOverSkin: Embed(source="images/Panel_closeButtonOverSkin.png");
+	closeButtonUpSkin: Embed(source="images/Panel_closeButtonUpSkin.png");
+	borderSkin: Embed(source="images/Panel_borderSkin.png",
+		scaleGridLeft="12", scaleGridTop="31", scaleGridRight="265", scaleGridBottom="189");
+	titleBackgroundSkin: Embed(source="images/empty.swf", symbol="Panel_titleBackgroundSkin");
+	borderThicknessLeft: 12;
+	borderThicknessRight: 11;
+	borderThicknessTop: 0;
+	borderThicknessBottom: 5;
+	headerHeight: 31;
+}
+
+/*
+//------------------------------
+//  Panel ControlBar
+//------------------------------
+*/
+ControlBar
+{
+	borderSkin: Embed(source="images/Panel_controlBarBackgroundSkin.png",
+		scaleGridLeft="3", scaleGridTop="1", scaleGridRight="273", scaleGridBottom="17");
+}
+
+/*
+//------------------------------
+//  PopUpButton
+//------------------------------
+*/
+PopUpButton
+{
+
+	disabledSkin: Embed(source="images/PopUpButton_DisabledSkin.png",
+		scaleGridLeft="4", scaleGridTop="4", scaleGridRight="64", scaleGridBottom="17");
+	downSkin: Embed(source="images/PopUpButton_downLeftSkin.png",
+		scaleGridLeft="4", scaleGridTop="4", scaleGridRight="64", scaleGridBottom="17");
+	overSkin: Embed(source="images/PopUpButton_overLeftSkin.png",
+		scaleGridLeft="4", scaleGridTop="4", scaleGridRight="64", scaleGridBottom="17");
+	popUpDownSkin: Embed(source="images/PopUpButton_downRightSkin.png",
+		scaleGridLeft="4", scaleGridTop="4", scaleGridRight="64", scaleGridBottom="17");
+	popUpOverSkin: Embed(source="images/PopUpButton_overRightSkin.png",
+		scaleGridLeft="4", scaleGridTop="4", scaleGridRight="64", scaleGridBottom="17");
+	upSkin: Embed(source="images/PopUpButton_upSkin.png",
+		scaleGridLeft="4", scaleGridTop="4", scaleGridRight="64", scaleGridBottom="17");
+}
+
+
+/*
+//------------------------------
+//  ProgressBar
+//------------------------------
+*/
+ProgressBar
+{
+
+	barSkin: Embed(source="images/ProgressBarSkin.png",
+		scaleGridLeft="1", scaleGridTop="0", scaleGridRight="52", scaleGridBottom="3");
+	indeterminateSkin: Embed(source="images/ProgressIndeterminateSkin.png");
+	trackSkin: Embed(source="images/ProgressTrackSkin.png",
+		scaleGridLeft="1", scaleGridTop="0", scaleGridRight="149", scaleGridBottom="3");
+
+}
+
+/*
+//------------------------------
+//  RadioButton
+//------------------------------
+*/
+RadioButton
+{
+
+	disabledIcon: Embed(source="images/RadioButton_disabledIcon.png");
+	downIcon: Embed(source="images/RadioButton_downIcon.png");
+	overIcon: Embed(source="images/RadioButton_overIcon.png");
+	selectedDisabledIcon: Embed(source="images/RadioButtonSelected_disabledIcon.png");
+	selectedDownIcon: Embed(source="images/RadioButtonSelected_downIcon.png");
+	selectedOverIcon: Embed(source="images/RadioButtonSelected_overIcon.png");
+	selectedUpIcon: Embed(source="images/RadioButtonSelected_upIcon.png");
+	upIcon: Embed(source="images/RadioButton_upIcon.png");
+
+}
+
+/*
+//------------------------------
+//  ScrollBar
+//------------------------------
+*/
+ScrollBar
+{
+
+	downArrowDisabledSkin: Embed(source="images/ScrollArrowDown_disabledSkin.png");
+	downArrowDownSkin: Embed(source="images/ScrollArrowDown_downSkin.png");
+	downArrowOverSkin: Embed(source="images/ScrollArrowDown_overSkin.png");
+	downArrowUpSkin: Embed(source="images/ScrollArrowDown_upSkin.png");
+	thumbDownSkin: Embed(source="images/ScrollThumb_downSkin.png",
+		scaleGridLeft="1", scaleGridTop="5", scaleGridRight="8", scaleGridBottom="48");
+	thumbIcon: Embed(source="images/ScrollBar_thumbIcon.png");
+	thumbOverSkin: Embed(source="images/ScrollThumb_overSkin.png",
+		scaleGridLeft="1", scaleGridTop="5", scaleGridRight="8", scaleGridBottom="48");
+	thumbUpSkin: Embed(source="images/ScrollThumb_upSkin.png",
+		scaleGridLeft="1", scaleGridTop="5", scaleGridRight="8", scaleGridBottom="48");
+	trackSkin: Embed(source="images/ScrollTrack_Skin.png");
+	upArrowDisabledSkin: Embed(source="images/ScrollArrowUp_disabledSkin.png");
+	upArrowDownSkin: Embed(source="images/ScrollArrowUp_downSkin.png");
+	upArrowOverSkin: Embed(source="images/ScrollArrowUp_overSkin.png");
+	upArrowUpSkin: Embed(source="images/ScrollArrowUp_upSkin.png");
+
+}
+
+/*
+//------------------------------
+//  Slider
+//------------------------------
+*/
+Slider
+{
+	thumbDisabledSkin: Embed(source="images/SliderThumb_disabledSkin.png");
+	thumbDownSkin: Embed(source="images/SliderThumb_downSkin.png");
+	thumbOverSkin: Embed(source="images/SliderThumb_overSkin.png");
+	thumbUpSkin: Embed(source="images/SliderThumb_upSkin.png");
+	trackHighlightSkin: Embed(source="images/SliderHighlight_Skin.png",
+		scaleGridLeft="1", scaleGridTop="0", scaleGridRight="46", scaleGridBottom="3");
+	trackSkin: Embed(source="images/SliderTrack_Skin.png",
+		scaleGridLeft="2", scaleGridTop="0", scaleGridRight="77", scaleGridBottom="3");
+}
+
+HSlider
+{
+	thumbDisabledSkin: Embed(source="images/SliderThumb_disabledSkin.png");
+	thumbDownSkin: Embed(source="images/SliderThumb_downSkin.png");
+	thumbOverSkin: Embed(source="images/SliderThumb_overSkin.png");
+	thumbUpSkin: Embed(source="images/SliderThumb_upSkin.png");
+	trackHighlightSkin: Embed(source="images/SliderHighlight_Skin.png",
+		scaleGridLeft="1", scaleGridTop="0", scaleGridRight="46", scaleGridBottom="3");
+	trackSkin: Embed(source="images/SliderTrack_Skin.png",
+		scaleGridLeft="2", scaleGridTop="0", scaleGridRight="77", scaleGridBottom="3");
+}
+
+VSlider
+{
+	thumbDisabledSkin: Embed(source="images/SliderThumb_disabledSkin.png");
+	thumbDownSkin: Embed(source="images/SliderThumb_downSkin.png");
+	thumbOverSkin: Embed(source="images/SliderThumb_overSkin.png");
+	thumbUpSkin: Embed(source="images/SliderThumb_upSkin.png");
+	trackHighlightSkin: Embed(source="images/SliderHighlight_Skin.png",
+		scaleGridLeft="1", scaleGridTop="0", scaleGridRight="46", scaleGridBottom="3");
+	trackSkin: Embed(source="images/SliderTrack_Skin.png",
+		scaleGridLeft="2", scaleGridTop="0", scaleGridRight="77", scaleGridBottom="3");
+}
+
+
+/*
+//------------------------------
+//  Tab
+//------------------------------
+*/
+TabBar
+{
+	firstButtonStyleName: "tabStyle";
+	tabStyleName: "tabStyle";
+	lastButtonStyleName: "tabStyle";
+}
+
+.tabStyle {
+	disabledSkin: Embed(source="images/Tab_disabledSkin.png",
+		scaleGridLeft="4", scaleGridTop="4", scaleGridRight="49", scaleGridBottom="20");
+	downSkin: Embed(source="images/Tab_downSkin.png",
+		scaleGridLeft="4", scaleGridTop="4", scaleGridRight="49", scaleGridBottom="20");
+	overSkin: Embed(source="images/Tab_overSkin.png",
+		scaleGridLeft="4", scaleGridTop="4", scaleGridRight="49", scaleGridBottom="20");
+	selectedDisabledSkin: Embed(source="images/TabSelected_disabledSkin.png",
+		scaleGridLeft="4", scaleGridTop="4", scaleGridRight="49", scaleGridBottom="20");
+	selectedDownSkin: Embed(source="images/TabSelected_upSkin.png",
+		scaleGridLeft="4", scaleGridTop="4", scaleGridRight="49", scaleGridBottom="20");
+	selectedOverSkin: Embed(source="images/TabSelected_upSkin.png",
+		scaleGridLeft="4", scaleGridTop="4", scaleGridRight="49", scaleGridBottom="20");
+	selectedUpSkin: Embed(source="images/TabSelected_upSkin.png",
+		scaleGridLeft="4", scaleGridTop="4", scaleGridRight="49", scaleGridBottom="20");
+	upSkin: Embed(source="images/Tab_upSkin.png",
+		scaleGridLeft="4", scaleGridTop="4", scaleGridRight="49", scaleGridBottom="20");
+
+}
+
+/*
+//------------------------------
+//  ToolTip
+//------------------------------
+*/
+ToolTip
+{
+
+	borderSkin: Embed(source="images/ToolTip_borderSkin.png",
+		scaleGridLeft="4", scaleGridTop="4", scaleGridRight="78", scaleGridBottom="18");
+}
+
+/*
+//------------------------------
+//  Tree
+//------------------------------
+*/
+Tree
+{
+	defaultLeafIcon: Embed(source="images/Tree_defaultLeafIcon.png");
+	disclosureClosedIcon: Embed(source="images/Tree_disclosureClosedIcon.png");
+	disclosureOpenIcon: Embed(source="images/Tree_disclosureOpenIcon.png");
+	folderClosedIcon: Embed(source="images/Tree_folderClosedIcon.png");
+	folderOpenIcon: Embed(source="images/Tree_folderOpenIcon.png");
+}
+

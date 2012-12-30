@@ -1,0 +1,522 @@
+<project name="OnlineFrontlines" default="compile" basedir=".">
+
+  <!-- Increment build number -->
+  <propertyfile file="version.properties" comment="Build version info">
+    <entry key="buildNumber" default="0" type="int" operation="+" value="1"/>
+  </propertyfile>
+
+  <!-- Source property files -->
+  <property file="build.properties"/>
+  <property file="version.properties"/>
+
+<!-- ==================== File and Directory Names ======================== 
+
+  These properties generally define file and directory names (or paths) that
+  affect where the build process stores its outputs.
+
+  app.name             Base name of this application, used to
+                       construct filenames and directories.
+                       Defaults to "myapp".
+
+  app.path             Context path to which this application should be
+                       deployed (defaults to "/" plus the value of the
+                       "app.name" property).
+
+  app.version          Version number of this iteration of the application.
+
+  build.home           The directory into which the "prepare" and
+                       "compile" targets will generate their output.
+                       Defaults to "build".
+
+  catalina.home        The directory in which you have installed
+                       a binary distribution of Tomcat 5.  This will
+                       be used by the "deploy" target.
+
+  dist.home            The name of the base directory in which
+                       distribution files are created.
+                       Defaults to "dist".
+
+  manager.password     The login password of a user that is assigned the
+                       "manager" role (so that he or she can execute
+                       commands via the "/manager" web application)
+
+  manager.url          The URL of the "/manager" web application on the
+                       Tomcat installation to which we will deploy web
+                       applications and web services.
+
+  manager.username     The login username of a user that is assigned the
+                       "manager" role (so that he or she can execute
+                       commands via the "/manager" web application)
+-->
+
+  <property name="catalina.home" value="-"/> <!-- OVERRIDE THIS IN YOUR build.properties -->
+  <property name="manager.url"   value="-"/> <!-- OVERRIDE THIS IN YOUR build.properties -->
+  <property name="app.name"      value="OnlineFrontlines"/>
+  <property name="app.path"      value="/${app.name}"/>
+  <property name="app.version"   value="1.0.${buildNumber}"/>
+  <property name="build.home"    value="${basedir}/build"/>
+  <property name="dist.home"     value="${basedir}/dist"/>
+  <property name="docs.home"     value="${basedir}/docs"/>
+  <property name="src.java"      value="${basedir}/src/java"/>
+  <property name="src.flash"     value="${basedir}/src/flash"/>
+  <property name="web.home"      value="${basedir}/web"/>
+  <property name="asdoc"		 location="${FLEX_HOME}\bin\asdoc.exe"/> 
+
+<!-- ================== Custom Ant Task Definitions =======================
+
+  These properties define custom tasks for the Ant build tool that interact
+  with the "/manager" web application installed with Tomcat 5.
+  
+-->
+
+  <taskdef name="deploy"	classname="org.apache.catalina.ant.DeployTask"		classpath="${catalina.home}/server/lib/catalina-ant.jar"/>
+  <taskdef name="undeploy" 	classname="org.apache.catalina.ant.UndeployTask"	classpath="${catalina.home}/server/lib/catalina-ant.jar"/>
+
+<!-- ================== Custom Ant Task Definitions =======================
+
+  These properties define custom tasks for the Ant build tool that interact
+  with jasper.
+  
+-->
+
+  <taskdef classname="org.apache.jasper.JspC" name="jasper2"> 
+	<classpath id="jspc.classpath"> 
+      <fileset dir="${catalina.home}/bin"> 
+          <include name="*.jar"/> 
+      </fileset> 
+      <fileset dir="${catalina.home}/server/lib"> 
+          <include name="*.jar"/> 
+      </fileset> 
+      <fileset dir="${catalina.home}/common/lib"> 
+          <include name="*.jar"/> 
+      </fileset> 
+	</classpath> 
+  </taskdef> 
+
+<!-- ================== Custom Ant Task Definitions =======================
+
+  These properties define custom tasks for the Ant build tool that interact
+  with Flex.
+  
+-->
+
+  <taskdef resource="flexTasks.tasks" classpath="${basedir}/lib/flexTasks.jar"/>
+
+<!--  ==================== Compilation Control Options ====================
+
+-->
+
+  <property name="compile.java.debug"       value="false"/>
+  <property name="compile.java.deprecation" value="true"/>
+  <property name="compile.java.optimize"    value="true"/>
+
+  <property name="compile.flash.debug"      value="false"/>
+	
+<!-- ==================== Compilation Classpath =========================== 
+
+-->
+
+  <path id="compile.java.classpath">
+
+    <!-- Include all elements that Tomcat exposes to applications -->
+    <pathelement location="${catalina.home}/common/classes"/>
+    <fileset dir="${catalina.home}/common/endorsed">
+      <include name="*.jar"/>
+    </fileset>
+    <fileset dir="${catalina.home}/common/lib">
+      <include name="*.jar"/>
+    </fileset>
+    <pathelement location="${catalina.home}/shared/classes"/>
+    <fileset dir="${catalina.home}/shared/lib">
+      <include name="*.jar"/>
+    </fileset>
+  	
+    <!-- Include our own lib folder -->
+    <fileset dir="${web.home}/WEB-INF/lib">
+      <include name="*.jar"/>
+    </fileset>
+    <fileset dir="${basedir}/lib">
+      <include name="*.jar"/>
+    </fileset>
+ 	
+  </path>
+
+<!-- ==================== All Target ====================================== 
+
+  The "all" target is a shortcut for running the "clean" target followed
+  by the "compile" target, to force a complete recompile.
+
+-->
+
+  <target name="all" depends="compile"/>
+
+<!-- ==================== Clean Target ==================================== 
+
+  The "clean" target deletes any previous "build" and "dist" directory,
+  so that you can be ensured the application can be built from scratch.
+
+-->
+
+  <target name="clean">
+    <delete dir="${build.home}"/>
+    <delete dir="${dist.home}"/>
+  </target>
+
+<!-- ==================== Prepare Target ================================== 
+
+  The "prepare" target is used to create the "build" destination directory,
+  and copy the static contents of your web application to it.
+  
+  Normally, this task is executed indirectly when needed.
+
+-->
+
+  <target name="prepare" depends="clean">
+
+    <!-- Create build directories as needed -->
+    <mkdir dir="${build.home}"/>
+    <mkdir dir="${build.home}/WEB-INF"/>
+    <mkdir dir="${build.home}/WEB-INF/classes"/>
+    <mkdir dir="${build.home}/WEB-INF/lib"/>
+
+    <!-- Copy static content of this web application -->
+    <copy todir="${build.home}">
+      <fileset dir="${web.home}"/>
+    </copy>
+  	
+  	<!-- Replace #buildNumber with ${buildNumber} -->
+  	<replaceregexp match="#buildNumber" replace="${buildNumber}" flags="g" byline="false">
+        <fileset dir="${build.home}" includes="**/*.html,**/*.htm,**/*.jsp"/>
+    </replaceregexp>
+
+  </target>
+
+<!-- ==================== Prepare for localhost Target ============================ 
+
+  This target reconfigures the application to run on localhost only 
+  (for debugging purposes)
+
+-->
+
+  <target name="prepareLocalhost" depends="prepare">
+  
+  	<!-- Replace antiResourceLocking="false" with antiResourceLocking="true" in context.xml -->
+  	<replaceregexp file="${build.home}/META-INF/context.xml" match="antiResourceLocking=&#34;false&#34;" replace="antiResourceLocking=&#34;true&#34;" flags="g" byline="false"/>
+
+  </target>
+  
+<!-- ==================== Strip JSP Files Target ================================== 
+
+  Strips whitespace from jsp files
+
+-->
+
+  <target name="stripJsp" depends="prepare" if="strip.jsp">
+  	
+	<!-- Strip whitespace -->
+	<replaceregexp match="\s+" replace=" " flags="g" byline="false">
+		<fileset dir="${build.home}" includes="**/*.html,**/*.htm,**/*.jsp"/>
+	</replaceregexp>
+	<replaceregexp match="&gt;\s+&lt;" replace="&gt;&lt;" flags="g" byline="false">
+		<fileset dir="${build.home}" includes="**/*.html,**/*.htm,**/*.jsp"/>
+	</replaceregexp>
+  	
+  </target>
+  	
+<!-- ==================== Compile JSP Target ================================== 
+
+  Compiles JSP files
+
+-->
+
+  <target name="compileJsp" depends="stripJsp" if="compile.jsp">
+  
+  	<!-- Create temp folder -->  	
+  	<mkdir dir="${build.home}/compiledJsp"/>
+  	
+  	<!-- Convert jsp files to java -->
+    <jasper2 validateXml="false"
+    		 trimSpaces="true"
+    		 genStringAsCharArray="true"
+             package="onlinefrontlines.jsp"
+             uriroot="${build.home}"
+             addWebXmlMappings="true"
+             webXmlFragment="${build.home}/WEB-INF/generated_web.xml" 
+             outputDir="${build.home}/compiledJsp"/> 
+
+    <!-- Compile Java classes -->
+    <javac srcdir="${build.home}/compiledJsp"
+          destdir="${build.home}/WEB-INF/classes"
+            debug="${compile.java.debug}"
+      deprecation="${compile.java.deprecation}"
+         optimize="${compile.java.optimize}"
+includeantruntime="false">
+        <classpath refid="compile.java.classpath"/>
+    </javac>
+    
+    <!-- Delete JSPs -->
+  	<delete dir="${build.home}/compiledJsp"/>
+  	<delete dir="${build.home}/mail"/>
+  	<delete dir="${build.home}/WEB-INF/jsp"/>
+  	    
+  </target>
+  
+<!-- ==================== Compile Java Target ================================== 
+
+  Compiles java files
+
+-->
+
+  <target name="compileJava" depends="prepare">
+
+    <!-- Compile Java classes -->
+    <javac srcdir="${src.java}"
+          destdir="${build.home}/WEB-INF/classes"
+            debug="${compile.java.debug}"
+      deprecation="${compile.java.deprecation}"
+         optimize="${compile.java.optimize}"
+includeantruntime="false">
+        <classpath refid="compile.java.classpath"/>
+    </javac>
+
+    <!-- Copy application resources -->
+    <copy  todir="${build.home}/WEB-INF/classes">
+      <fileset dir="${src.java}" excludes="**/*.java"/>
+    </copy>
+
+  </target>
+  
+<!-- ==================== Compile Flash Target ================================== 
+
+  Compiles flash files using Flex
+
+-->
+
+  <target name="compileFlash" depends="prepare" if="compile.flash">
+  	<parallel threadsPerProcessor="3">
+	  	<!-- Generate map editor -->
+	    <mxmlc file="${src.flash}/MapEdit.mxml"
+	    	output="${build.home}/assets/MapEdit${buildNumber}.swf"
+	    	debug="${compile.flash.debug}"
+	    	strict="true">
+	        <load-config filename="${FLEX_HOME}/frameworks/flex-config.xml"/>
+	        <source-path path-element="${FLEX_HOME}/frameworks"/>
+			<library-path dir="${src.flash}" append="true">
+				<include name="components"/>
+			</library-path>
+	    </mxmlc>
+	 
+	 	<!-- Generate game -->    
+	    <mxmlc file="${src.flash}/Game.mxml"
+	    	output="${build.home}/assets/Game${buildNumber}.swf"
+	    	debug="${compile.flash.debug}"
+	    	strict="true">
+	        <load-config filename="${FLEX_HOME}/frameworks/flex-config.xml"/>
+	        <source-path path-element="${FLEX_HOME}/frameworks"/>
+			<library-path dir="${src.flash}" append="true">
+				<include name="components"/>
+			</library-path>
+	    </mxmlc>
+	
+	 	<!-- Generate lobby editor -->    
+	    <mxmlc file="${src.flash}/LobbyEdit.mxml"
+	    	output="${build.home}/assets/LobbyEdit${buildNumber}.swf"
+	    	debug="${compile.flash.debug}"
+	    	strict="true">
+	        <load-config filename="${FLEX_HOME}/frameworks/flex-config.xml"/>
+	        <source-path path-element="${FLEX_HOME}/frameworks"/>
+			<library-path dir="${src.flash}" append="true">
+				<include name="components"/>
+			</library-path>
+	    </mxmlc>
+	
+	 	<!-- Generate lobby -->    
+	    <mxmlc file="${src.flash}/Lobby.mxml"
+	    	output="${build.home}/assets/Lobby${buildNumber}.swf"
+	    	debug="${compile.flash.debug}"
+	    	strict="true">
+	        <load-config filename="${FLEX_HOME}/frameworks/flex-config.xml"/>
+	        <source-path path-element="${FLEX_HOME}/frameworks"/>
+			<library-path dir="${src.flash}" append="true">
+				<include name="components"/>
+			</library-path>
+	    </mxmlc>
+	</parallel>
+</target>  
+
+<!-- ==================== Compile Target ================================== 
+
+  The "compile" target transforms source files (from your "src" directory)
+  into object files in the appropriate location in the build directory.
+
+-->
+
+  <target name="compile" depends="compileJava,compileJsp,compileFlash"/>
+
+<!-- ==================== Dist Target ===================================== 
+
+  The "dist" target creates a binary distribution of your application
+  in a directory structure ready to be archived in a tar.gz or zip file.
+
+-->
+
+  <target name="dist" depends="compile">
+
+    <!-- Create application JAR file -->
+    <mkdir dir="${dist.home}"/>
+    <jar jarfile="${dist.home}/${app.name}.war"
+         basedir="${build.home}"/>
+
+  </target>
+
+  <!-- ==================== Install Target ================================== 
+
+  The "install" target tells the specified Tomcat 5 installation to dynamically
+  install this web application and make it available for execution.  It does
+  *not* cause the existence of this web application to be remembered across
+  Tomcat restarts; if you restart the server, you will need to re-install all
+  this web application.
+
+  If you have already installed this application, and simply want Tomcat to
+  recognize that you have updated Java classes (or the web.xml file), use the
+  "reload" target instead.
+
+  NOTE:  This target will only succeed if it is run from the same server that
+  Tomcat is running on.
+
+  NOTE:  This is the logical opposite of the "remove" target.
+
+-->
+
+  <target name="install" depends="prepareLocalhost,compile">
+
+    <deploy url="${manager.url}"
+       username="${manager.username}"
+       password="${manager.password}"
+           path="${app.path}"
+       localWar="file://${build.home}"/>
+
+  </target>
+  
+<!-- ==================== Remove Target =================================== 
+
+  The "remove" target tells the specified Tomcat 5 installation to dynamically
+  remove this web application from service.
+
+  NOTE:  This is the logical opposite of the "install" target.
+
+-->
+
+  <target name="remove">
+
+    <undeploy url="${manager.url}"
+         username="${manager.username}"
+         password="${manager.password}"
+             path="${app.path}"/>
+
+  </target>
+
+<!-- ==================== Reinstall Target =================================== 
+
+  Removes then installs the service
+  
+-->
+
+  <target name="reinstall" depends="remove,install">
+
+  </target>
+		
+<!-- ==================== Create Database Target =================================== 
+
+  Creates a clean database
+  
+-->
+	
+  <target name="createdb">
+	
+  	<sql classpath="${datasource.jar}"
+	driver="${datasource.driver}"
+	src="${basedir}/db/create_ofl_db.sql"
+	url="${datasource.url}"
+	userid="${datasource.username}"
+	password="${datasource.password}"/>
+
+  	<sql classpath="${datasource.jar}"
+	driver="${datasource.driver}"
+	src="${basedir}/db/create_ofl_procs.sql"
+	url="${datasource.url}"
+	userid="${datasource.username}"
+	password="${datasource.password}"
+	delimiter="$$"/>
+
+  	<sql classpath="${datasource.jar}"
+	driver="${datasource.driver}"
+	src="${basedir}/db/create_ofl_data.sql"
+	url="${datasource.url}"
+	userid="${datasource.username}"
+	password="${datasource.password}"/>
+
+</target>
+	
+<!-- ==================== Javadoc Target ================================== 
+
+  The "javadoc" target creates Javadoc API documentation for the Java
+  classes included in your application. 
+
+-->
+
+  <target name="javadoc">
+
+    <mkdir dir="${dist.home}/javadoc"/>
+    
+  	<javadoc sourcepath="${src.java}"
+             destdir="${dist.home}/javadoc"
+             packagenames="*">
+      <classpath refid="compile.java.classpath"/>
+    </javadoc>
+
+  </target>
+
+<!-- ==================== Asdoc Target ================================== 
+
+	Outputs flash actionscript documentation
+	
+-->
+
+  <target name="asdoc">
+  	
+    <mkdir dir="${dist.home}/asdoc"/>
+  	
+    <exec executable="${asdoc}" failonerror="true">
+      <arg line="-doc-sources ${src.flash}"/> 
+      <arg line="-output ${dist.home}/asdoc"/> 
+    </exec>
+  	
+  </target>
+
+<!-- ==================== Doc Target ===================================== 
+
+  This target addes the documentation to the dist folder
+
+-->
+
+  <target name="doc" depends="javadoc,asdoc"/>
+
+<!-- ==================== Remove E-Mail addresses =================================== 
+
+  Remove e-mail addresses from database to prevent spamming users 
+  
+-->
+	
+  <target name="remove_email">
+	
+  	<sql classpath="${datasource.jar}"
+	driver="${datasource.driver}"
+	src="${basedir}/db/remove_email.sql"
+	url="${datasource.url}"
+	userid="${datasource.username}"
+	password="${datasource.password}"/>
+
+  </target>
+		
+</project>

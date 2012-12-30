@@ -1,0 +1,9 @@
+<tr><td style="width: 750px; height: 11px; <%=td%>"><img src="${applicationScope.assetsUrl}/layout/box_750_top.png" alt="" style="<%=img%>"/></td></tr>
+<tr><td style="width: 750px; height: 100px; <%=td%>">
+	<table style="width: 750px; height: 100px; <%=table%>">
+		<col width="8"/>
+		<col width="731"/>
+		<col width="11"/>
+		<tr>				
+			<td style="width: 8px; height: 100px; <%=td%>"><img src="${applicationScope.assetsUrl}/layout/box_left_100.png" alt="" style="width: 8px; height: 100px; <%=img%>"/></td>
+			<td style="height: 100px; <%=td%>">

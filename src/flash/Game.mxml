@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<mx:Application 
+	xmlns:mx="http://www.adobe.com/2006/mxml"
+	xmlns:utils="onlinefrontlines.utils.*"
+	xmlns:game="onlinefrontlines.game.*"
+	styleName="plain"
+	horizontalScrollPolicy="off"
+	verticalScrollPolicy="off"
+	width="990"
+	height="595"
+	backgroundColor="#00000000"
+	preloader="GeneralPreloader"
+	creationComplete="initApp()">
+	
+	<mx:Script>
+		<![CDATA[
+	        import onlinefrontlines.game.Main;
+			
+			public function initApp() : void 			
+			{
+	            Main.run();
+			}
+		]]>
+	</mx:Script>
+
+	<mx:Style source="Styles.css"/>
+
+    <mx:Sequence id="pulsateNavPlayButton" repeatCount="10000">
+        <mx:AnimateProperty property="alpha" fromValue="1.0" toValue="0.3" duration="1000"/>
+        <mx:AnimateProperty property="alpha" fromValue="0.3" toValue="1.0" duration="1000"/>    
+    </mx:Sequence>
+  
+	<mx:Canvas id="canvas">
+	
+		<game:MapConfig id="mapConfig"/>
+		
+		<utils:Throbber x="800" y="5" id="throbber"/>
+		
+		<mx:Image x="870" y="0" id="infoPanel" source="@Embed(source='assets/info_panel/info_panel.png')"/>
+		
+		<mx:Image x="912" y="30" id="unitImage"/>
+		<mx:Image x="912" y="30" id="unitTextImage"/>
+		<mx:Label x="880" y="58" width="100" id="unitText" styleName="default" selectable="false" textAlign="center" text="?" visible="false"/>
+
+		<game:TerrainImage x="912" y="239" id="terrainImage" visible="false"/>
+		<mx:Label x="880" y="270" width="100" id="terrainText" styleName="default" selectable="false" textAlign="center" text="?" visible="false"/>
+
+		<mx:CheckBox x="870" y="441" width="17" height="21" id="showGraveyard" 
+			upIcon="@Embed(source='assets/info_panel/cross_off.png')" 
+			overIcon="@Embed(source='assets/info_panel/cross_off_over.png')" 
+			downIcon="@Embed(source='assets/info_panel/cross_off_down.png')" 
+			selectedUpIcon="@Embed(source='assets/info_panel/cross_on.png')" 
+			selectedOverIcon="@Embed(source='assets/info_panel/cross_on_over.png')" 
+			selectedDownIcon="@Embed(source='assets/info_panel/cross_on_down.png')" 
+			toolTip="Show Graveyard"
+			selected="false"/>
+		<mx:CheckBox x="887" y="441" width="17" height="21" id="showOwner" 
+			upIcon="@Embed(source='assets/info_panel/owner_off.png')" 
+			overIcon="@Embed(source='assets/info_panel/owner_off_over.png')" 
+			downIcon="@Embed(source='assets/info_panel/owner_off_down.png')" 
+			selectedUpIcon="@Embed(source='assets/info_panel/owner_on.png')" 
+			selectedOverIcon="@Embed(source='assets/info_panel/owner_on_over.png')" 
+			selectedDownIcon="@Embed(source='assets/info_panel/owner_on_down.png')" 
+			toolTip="Show Tile Owner Icons"
+			selected="false"/>
+		<mx:CheckBox x="904" y="441" width="17" height="21" id="showChat" 
+			upIcon="@Embed(source='assets/info_panel/chat_off.png')" 
+			overIcon="@Embed(source='assets/info_panel/chat_off_over.png')" 
+			downIcon="@Embed(source='assets/info_panel/chat_off_down.png')" 
+			selectedUpIcon="@Embed(source='assets/info_panel/chat_on.png')" 
+			selectedOverIcon="@Embed(source='assets/info_panel/chat_on_over.png')" 
+			selectedDownIcon="@Embed(source='assets/info_panel/chat_on_down.png')" 
+			toolTip="Show Chat Window"
+			selected="false"/>
+		<mx:CheckBox x="921" y="441" width="17" height="21" id="showScore" 
+			upIcon="@Embed(source='assets/info_panel/stats_off.png')" 
+			overIcon="@Embed(source='assets/info_panel/stats_off_over.png')" 
+			downIcon="@Embed(source='assets/info_panel/stats_off_down.png')" 
+			selectedUpIcon="@Embed(source='assets/info_panel/stats_on.png')" 
+			selectedOverIcon="@Embed(source='assets/info_panel/stats_on_over.png')" 
+			selectedDownIcon="@Embed(source='assets/info_panel/stats_on_down.png')" 
+			toolTip="Show Status Window"
+			selected="false"/>
+		<mx:CheckBox x="938" y="441" width="17" height="21" id="enableSound" 
+			upIcon="@Embed(source='assets/info_panel/sound_off.png')" 
+			overIcon="@Embed(source='assets/info_panel/sound_off_over.png')" 
+			downIcon="@Embed(source='assets/info_panel/sound_off_down.png')" 
+			selectedUpIcon="@Embed(source='assets/info_panel/sound_on.png')" 
+			selectedOverIcon="@Embed(source='assets/info_panel/sound_on_over.png')" 
+			selectedDownIcon="@Embed(source='assets/info_panel/sound_on_down.png')" 
+			toolTip="Sound On/Off"
+			selected="true"/>
+		<mx:CheckBox x="955" y="441" width="17" height="21" id="showInfo" 
+			upIcon="@Embed(source='assets/info_panel/info_off.png')" 
+			overIcon="@Embed(source='assets/info_panel/info_off_over.png')" 
+			downIcon="@Embed(source='assets/info_panel/info_off_down.png')" 
+			selectedUpIcon="@Embed(source='assets/info_panel/info_on.png')" 
+			selectedOverIcon="@Embed(source='assets/info_panel/info_on_over.png')" 
+			selectedDownIcon="@Embed(source='assets/info_panel/info_on_down.png')" 
+			toolTip="Show Battle View"
+			selected="true"/>
+		<mx:CheckBox x="972" y="441" width="17" height="21" id="showHelp" 
+			upIcon="@Embed(source='assets/info_panel/help_off.png')" 
+			overIcon="@Embed(source='assets/info_panel/help_off_over.png')" 
+			downIcon="@Embed(source='assets/info_panel/help_off_down.png')" 
+			selectedUpIcon="@Embed(source='assets/info_panel/help_on.png')" 
+			selectedOverIcon="@Embed(source='assets/info_panel/help_on_over.png')" 
+			selectedDownIcon="@Embed(source='assets/info_panel/help_on_down.png')" 
+			toolTip="Show Help"
+			selected="false"/>
+		
+		<mx:Label x="944" y="329" id="currentRoundText" styleName="default" selectable="false"/>
+		<mx:Image x="876" y="346" id="playerColor1"/>
+		<mx:Image x="876" y="362" id="playerColor2"/>
+		<mx:Label x="920" y="344" width="55" id="playerName1" styleName="default" selectable="false"/>
+		<mx:Label x="920" y="361" width="55" id="playerName2" styleName="default" selectable="false"/>
+		<mx:Label x="920" y="377" id="timeLeft" styleName="default" selectable="false"/>
+		<mx:Label x="920" y="392" id="scoreP1" styleName="default" selectable="false"/>
+		<mx:Label x="950" y="392" id="scoreP2" styleName="default" selectable="false"/>
+
+		<mx:Button x="877" y="540" width="15" height="17" id="navBeginButton" toolTip="Go to game start" visible="false" 
+			upSkin="@Embed(source='../../web/assets/time_control/play_home_up.png')" 
+			overSkin="@Embed(source='../../web/assets/time_control/play_home_over.png')" 
+			downSkin="@Embed(source='../../web/assets/time_control/play_home_down.png')"
+			disabledSkin="@Embed(source='../../web/assets/time_control/play_home_disabled.png')"/>
+		<mx:Button x="892" y="540" width="15" height="17" id="navTurnBackButton" toolTip="Go round back" visible="false"
+			upSkin="@Embed(source='../../web/assets/time_control/play_begin_up.png')" 
+			overSkin="@Embed(source='../../web/assets/time_control/play_begin_over.png')" 
+			downSkin="@Embed(source='../../web/assets/time_control/play_begin_down.png')"
+			disabledSkin="@Embed(source='../../web/assets/time_control/play_begin_disabled.png')"/>
+		<mx:Button x="907" y="540" width="15" height="17" id="navBackButton" toolTip="Go move back" visible="false"
+			upSkin="@Embed(source='../../web/assets/time_control/play_back_up.png')" 
+			overSkin="@Embed(source='../../web/assets/time_control/play_back_over.png')" 
+			downSkin="@Embed(source='../../web/assets/time_control/play_back_down.png')"
+			disabledSkin="@Embed(source='../../web/assets/time_control/play_back_disabled.png')"/>
+		<mx:Button x="922" y="540" width="15" height="17" id="navStopButton" toolTip="Stop playback" visible="false"
+			upSkin="@Embed(source='../../web/assets/time_control/play_pause_up.png')" 
+			overSkin="@Embed(source='../../web/assets/time_control/play_pause_over.png')" 
+			downSkin="@Embed(source='../../web/assets/time_control/play_pause_down.png')"
+			disabledSkin="@Embed(source='../../web/assets/time_control/play_pause_disabled.png')"/>
+		<mx:Button x="922" y="540" width="15" height="17" id="navPlayButton" toolTip="Start playback" visible="false"
+			upSkin="@Embed(source='../../web/assets/time_control/play_play_up.png')" 
+			overSkin="@Embed(source='../../web/assets/time_control/play_play_over.png')" 
+			downSkin="@Embed(source='../../web/assets/time_control/play_play_down.png')"
+			disabledSkin="@Embed(source='../../web/assets/time_control/play_play_disabled.png')"/>
+		<mx:Button x="937" y="540" width="15" height="17" id="navForwardButton" toolTip="Go move forward" visible="false"
+			upSkin="@Embed(source='../../web/assets/time_control/play_next_up.png')" 
+			overSkin="@Embed(source='../../web/assets/time_control/play_next_over.png')" 
+			downSkin="@Embed(source='../../web/assets/time_control/play_next_down.png')"
+			disabledSkin="@Embed(source='../../web/assets/time_control/play_next_disabled.png')"/>
+		<mx:Button x="952" y="540" width="15" height="17" id="navTurnForwardButton" toolTip="Go round forward" visible="false"
+			upSkin="@Embed(source='../../web/assets/time_control/play_last_up.png')" 
+			overSkin="@Embed(source='../../web/assets/time_control/play_last_over.png')" 
+			downSkin="@Embed(source='../../web/assets/time_control/play_last_down.png')"
+			disabledSkin="@Embed(source='../../web/assets/time_control/play_last_disabled.png')"/>
+		<mx:Button x="967" y="540" width="15" height="17" id="navEndButton" toolTip="Go to last move" visible="false"
+			upSkin="@Embed(source='../../web/assets/time_control/play_end_up.png')" 
+			overSkin="@Embed(source='../../web/assets/time_control/play_end_over.png')" 
+			downSkin="@Embed(source='../../web/assets/time_control/play_end_down.png')"
+			disabledSkin="@Embed(source='../../web/assets/time_control/play_end_disabled.png')"/>
+
+		<mx:Button x="876" y="474" height="17" id="drawButton" label="Draw" styleName="messageBoxButton" enabled="false"/>
+		<mx:Button x="876" y="493" height="17" id="surrenderButton" label="Surrender" styleName="messageBoxButton" enabled="false"/>
+		<mx:Button x="876" y="512" height="17" id="feedbackButton" label="Feedback" styleName="messageBoxButton" enabled="false"/>
+
+		<mx:Button x="875" y="576" height="17" id="endTurnButton" styleName="messageBoxButton" label="End Turn" visible="false"/>
+		<mx:Button x="875" y="576" height="17" id="toLobbyButton" styleName="messageBoxButton" label="Back to Lobby" visible="false"/>
+		
+		<mx:Canvas id="annotation" visible="false"/>
+
+		<mx:Canvas id="balloons"/>
+
+		<utils:Greyout id="greyOut"/>
+		
+		<game:ScoreWindow id="scoreWindow" x="281" y="204"/>
+
+		<game:Graveyard id="graveyardWindow" x="281" y="204"/>
+
+		<game:ChatWindow id="chatWindow" x="0" y="445"/>
+
+		<game:HelpWindow id="helpWindow" x="168" y="63"/>
+
+		<game:BattleView id="battleView"/>
+		
+		<game:BaseMenu id="baseMenu"/>
+		
+		<game:TipsWindow id="tipsWindow" x="300" y="200"/>
+
+		<utils:SlideBox id="slideBox" x="90" y="0"/>
+
+		<game:VictoryWindow id="victoryWindow" x="314" y="113" width="280" height="373"/>
+
+		<utils:MsgBox id="msgBox" x="314" y="230" width="280" height="139"/>
+
+	</mx:Canvas>
+	
+</mx:Application>

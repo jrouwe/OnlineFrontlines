@@ -1,0 +1,7 @@
+Animated gif player AS3GIF version 0.4, taken from:
+
+http://code.google.com/p/as3gif
+
+Unrar as3gif.rar and compile with:
+
+compc -include-sources src -output as3gif.swc

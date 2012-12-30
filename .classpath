@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" output="classes" path="src/java"/>
+	<classpathentry kind="lib" path="C:/apache-tomcat-5.5.36/common/lib/commons-el.jar"/>
+	<classpathentry kind="lib" path="C:/apache-tomcat-5.5.36/common/lib/jasper-compiler.jar"/>
+	<classpathentry kind="lib" path="C:/apache-tomcat-5.5.36/common/lib/jasper-runtime.jar"/>
+	<classpathentry kind="lib" path="C:/apache-tomcat-5.5.36/common/lib/jsp-api.jar"/>
+	<classpathentry kind="lib" path="C:/apache-tomcat-5.5.36/common/lib/naming-factory-dbcp.jar"/>
+	<classpathentry kind="lib" path="C:/apache-tomcat-5.5.36/common/lib/naming-factory.jar"/>
+	<classpathentry kind="lib" path="C:/apache-tomcat-5.5.36/common/lib/naming-resources.jar"/>
+	<classpathentry kind="lib" path="C:/apache-tomcat-5.5.36/common/lib/servlet-api.jar"/>
+	<classpathentry kind="lib" path="C:/Program Files/Java/jre6/lib/jce.jar"/>
+	<classpathentry kind="lib" path="C:/Program Files/Java/jre6/lib/rt.jar"/>
+	<classpathentry kind="lib" path="web/WEB-INF/lib/commons-fileupload-1.2.1.jar"/>
+	<classpathentry kind="lib" path="web/WEB-INF/lib/commons-io-1.4.jar"/>
+	<classpathentry kind="lib" path="web/WEB-INF/lib/jstl.jar"/>
+	<classpathentry kind="lib" path="web/WEB-INF/lib/log4j-1.2.14.jar"/>
+	<classpathentry kind="lib" path="web/WEB-INF/lib/mail.jar"/>
+	<classpathentry kind="lib" path="web/WEB-INF/lib/standard.jar"/>
+	<classpathentry kind="lib" path="web/WEB-INF/lib/junit-4.5.jar"/>
+	<classpathentry kind="lib" path="lib/commons-dbcp.jar"/>
+	<classpathentry kind="lib" path="web/WEB-INF/lib/ehcache-1.6.0-beta5.jar"/>
+	<classpathentry kind="lib" path="web/WEB-INF/lib/json_simple-1.1.jar"/>
+	<classpathentry kind="lib" path="web/WEB-INF/lib/commons-codec-1.6.jar"/>
+	<classpathentry kind="lib" path="docs/tomcat/common/lib/mysql-connector-java-5.0.8-bin.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>
