@@ -9,6 +9,10 @@
 	
 <div id="content_center_single_col">
 	<ofl:Box title="ADMIN PAGE" className="466">
+		<p><a href="${applicationScope.appUrl}/GameCreate.do">Create Game</a></p>
+		
+		<p><a href="${applicationScope.appUrl}/GameJoin.do">Join Game</a></p>
+		
 		<p><a href="${applicationScope.appUrl}/CountryListInvalid.do">List Invalid Countries</a></p>
 
 		<p><a href="${applicationScope.appUrl}/CountryListToBePublished.do">List Countries To Be Published</a></p>

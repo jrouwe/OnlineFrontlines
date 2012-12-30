@@ -33,6 +33,10 @@ Now make a self signed certificate in your home folder:
 
 	cd \Users\<user name>
 	"%JAVA_HOME%\bin\keytool" -genkey -keyalg RSA -alias tomcat -storepass tomcat -keysize 2048
+	
+As 'first and last name' (CN) fill in the domain name you will be running the application on (localhost?). 
+
+Make sure you accept this certificate in your browser.
 
 Edit \<tomcat>/conf/context.xml and add a JDBC resource (in the \<Context> element):
 
