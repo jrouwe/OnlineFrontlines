@@ -3,11 +3,6 @@
 				Check <a href="${applicationScope.appUrl}/" style="<%=href%>">www.onlinefrontlines.com</a> for more information.<br/>  
 				Need help? Click <a href="${applicationScope.appUrl}/HelpGeneral.do" style="<%=href%>">here</a> to visit the help section.
 			<%@include file="mailboxbottom.jspf"%>
-			<%-- 
-			<%@include file="mailboxtop.jspf"%>
-				To access <a href="${applicationScope.appUrl}/" style="<%=href%>">www.onlinefrontlines.com</a> use 'test' as username and 'oorlogjespelen' as password (without the quotes).  
-			<%@include file="mailboxbottom.jspf"%>
-			--%>
 		</table>
 	</body>
 </html>
