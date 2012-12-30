@@ -22,6 +22,6 @@
 	<classpathentry kind="lib" path="web/WEB-INF/lib/ehcache-1.6.0-beta5.jar"/>
 	<classpathentry kind="lib" path="web/WEB-INF/lib/json_simple-1.1.jar"/>
 	<classpathentry kind="lib" path="web/WEB-INF/lib/commons-codec-1.6.jar"/>
-	<classpathentry kind="lib" path="docs/tomcat/common/lib/mysql-connector-java-5.0.8-bin.jar"/>
+	<classpathentry kind="lib" path="tomcat/common/lib/mysql-connector-java-5.0.8-bin.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
