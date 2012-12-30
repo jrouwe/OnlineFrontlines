@@ -5,9 +5,9 @@ The following guide assumes you're running Windows 7.
 
 You need to have MySQL 5.5, Flex 2 SDK and Tomcat 5.5 installed.
 
-Copy everything from the <onlinefrontlines>/docs/tomcat folder to your tomcat setup folder
+Copy everything from the <onlinefrontlines>/tomcat folder to your tomcat setup folder
 
-Make sure a user with 'manager' role is set up in <tomcat>/conf/tomcat-users.xml and fill in the username / password in <onlinefrontlines>/build.properties.
+Make sure a user with 'manager' role is set up in \<tomcat>/conf/tomcat-users.xml and fill in the username / password in \<onlinefrontlines>/build.properties.
 
 Change the 'non-SSL HTTP/1.1 Connector' to:
 
@@ -31,10 +31,10 @@ Change the 'SSL HTTP/1.1 Connector' to:
 
 Now make a self signed certificate in your home folder:
 
-cd \Users\<user name>
-"%JAVA_HOME%\bin\keytool" -genkey -keyalg RSA -alias tomcat -storepass tomcat -keysize 2048
+	cd \Users\<user name>
+	"%JAVA_HOME%\bin\keytool" -genkey -keyalg RSA -alias tomcat -storepass tomcat -keysize 2048
 
-Edit <tomcat>/conf/context.xml and add a JDBC resource (in the <Context> element):
+Edit \<tomcat>/conf/context.xml and add a JDBC resource (in the \<Context> element):
 
 	<!-- Resources -->
 	<Resource auth="Container" 
@@ -55,7 +55,7 @@ Edit <tomcat>/conf/context.xml and add a JDBC resource (in the <Context> element
 		poolPreparedStatements="true" 
 		maxOpenPreparedStatements="256"/>		
 		
-Override the error page in <tomcat>/conf/web.xml by adding this in the <web-app> tag:
+Override the error page in \<tomcat>/conf/web.xml by adding this in the \<web-app> tag:
 
     <!-- Error pages -->
     <error-page>
@@ -73,7 +73,7 @@ Override the error page in <tomcat>/conf/web.xml by adding this in the <web-app>
 		<location>/ServerError.html</location>
 	</error-page>
 
-You can override any setting in <onlinefronlines>/web/WEB-INF/config/global.properties in <tomcat>/conf/web.xml too:
+You can override any setting in \<onlinefronlines>/web/WEB-INF/config/global.properties in \<tomcat>/conf/web.xml too:
 	
 	<context-param>
 		<param-name>name</param-name>
@@ -84,7 +84,7 @@ Now start tomcat using:
 
 catalina start
 
-Edit <onlinefrontlines>/web/WEB-INF/config/global.properties and fill in the relevant hosts / ports and passwor and facebook informationds.
+Edit \<onlinefrontlines>/web/WEB-INF/config/global.properties and fill in the relevant hosts / ports and passwords and facebook information.
 
 Create the database with:
 
