@@ -6,12 +6,9 @@ grant codeBase "file:/var/lib/tomcat5.5/webapps/OnlineFrontlines/-" {
         permission java.net.SocketPermission "localhost:3306", "connect,resolve";
         permission java.net.SocketPermission "play.onlinefrontlines.com:80", "connect,resolve";
         permission java.net.SocketPermission "customer-smtp.one.com:2525", "connect,resolve";
-				permission java.net.SocketPermission "www.facebook.com:80", "connect,resolve";
-				permission java.net.SocketPermission "graph.facebook.com:443", "connect,resolve";
+	permission java.net.SocketPermission "www.facebook.com:80", "connect,resolve";
+	permission java.net.SocketPermission "graph.facebook.com:443", "connect,resolve";
 
         permission java.lang.RuntimePermission "accessClassInPackage.org.apache.coyote";
         permission java.lang.RuntimePermission "accessClassInPackage.org.apache.catalina.core";
-
-				permission java.security.SecurityPermission "putProviderProperty.BC";
-				permission java.security.SecurityPermission "insertProvider.BC";
 };
